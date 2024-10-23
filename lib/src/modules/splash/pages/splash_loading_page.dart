@@ -42,6 +42,14 @@ class _SplashLoadingPageState extends State<SplashLoadingPage> {
             Center(
               child: Image.asset(
                 'assets/images/logo.png',
+                height: 200,
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 8, bottom: 8),
+              child: Text(
+                'LiterArt',
+                style: AppLiterArtTheme.titleAlertDialog,
               ),
             ),
             const SizedBox(

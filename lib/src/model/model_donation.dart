@@ -14,6 +14,7 @@ class ModelDonation {
   bool? conservation;
   List<dynamic>? photos;
   String? address;
+  String? profilePicture;
 
   ModelDonation({
     this.donationUid,
@@ -29,6 +30,7 @@ class ModelDonation {
     this.conservation,
     this.photos,
     this.address,
+    this.profilePicture,
   });
 
   Map<String, dynamic> toMap() {
@@ -46,6 +48,7 @@ class ModelDonation {
       if (conservation != null) 'conservation': conservation,
       if (photos != null) 'photos': photos,
       if (address != null) 'address': address,
+      if (profilePicture != null) 'profile': profilePicture,
     };
   }
 
@@ -62,7 +65,8 @@ class ModelDonation {
         publicationDate = json['publicationDate'],
         conservation = json['conservation'],
         photos = json['photos'],
-        address = json['address'];
+        address = json['address'],
+        profilePicture = json['profile'];
 
   factory ModelDonation.fromDocument(DocumentSnapshot doc) {
     final dados = doc.data()! as Map<String, dynamic>;

@@ -3,6 +3,7 @@ import 'package:app_liter_art/src/modules/assessments/assessment_feed_page.dart'
 import 'package:app_liter_art/src/modules/donations/donation_feed_page.dart';
 import 'package:app_liter_art/src/modules/messages/message_feed_page.dart';
 import 'package:app_liter_art/src/modules/requests/request_feed_page.dart';
+import 'package:app_liter_art/src/modules/search/search.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,83 +75,84 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('LiterArt'),
       ),
-      body: SizedBox(
-        width: sizeOf.width,
-        height: sizeOf.height,
-        child: Column(
-          children: [
-            SizedBox(
-              width: sizeOf.width,
-              height: sizeOf.height * 0.05,
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    child: SizedBox(
-                      width: sizeOf.width,
-                      height: sizeOf.height * 0.04,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: tabs.length,
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  current = index;
-                                });
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: index == 0 ? 10 : 24,
-                                  top: 7,
-                                ),
-                                child: Text(
-                                  tabs[index],
-                                  style: TextStyle(
-                                    color: current == index
-                                        ? AppLiterArtTheme.violetDark
-                                        : AppLiterArtTheme.grey,
-                                    fontSize: current == index ? 16 : 14,
-                                    fontWeight: current == index
-                                        ? FontWeight.w400
-                                        : FontWeight.w300,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: sizeOf.width,
+          height: sizeOf.height,
+          child: Column(
+            children: [
+              SizedBox(
+                width: sizeOf.width,
+                height: sizeOf.height * 0.05,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: SizedBox(
+                        width: sizeOf.width,
+                        height: sizeOf.height * 0.04,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: tabs.length,
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    current = index;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    left: index == 0 ? 10 : 24,
+                                    top: 7,
+                                  ),
+                                  child: Text(
+                                    tabs[index],
+                                    style: TextStyle(
+                                      color: current == index
+                                          ? AppLiterArtTheme.violetDark
+                                          : AppLiterArtTheme.grey,
+                                      fontSize: current == index ? 16 : 14,
+                                      fontWeight: current == index
+                                          ? FontWeight.w400
+                                          : FontWeight.w300,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          }),
+                              );
+                            }),
+                      ),
                     ),
-                  ),
-                  AnimatedPositioned(
-                    bottom: 0,
-                    left: _chengePosiotionedOfLine(),
-                    curve: Curves.fastLinearToSlowEaseIn,
-                    duration: const Duration(milliseconds: 500),
-                    child: AnimatedContainer(
+                    AnimatedPositioned(
+                      bottom: 0,
+                      left: _chengePosiotionedOfLine(),
                       curve: Curves.fastLinearToSlowEaseIn,
-                      margin: const EdgeInsets.only(left: 10),
-                      duration: const Duration(
-                        milliseconds: 500,
-                      ),
-                      width: _chengeConatinerWidth(),
-                      height: sizeOf.height * 0.008,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: AppLiterArtTheme.violetDark,
+                      duration: const Duration(milliseconds: 500),
+                      child: AnimatedContainer(
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        margin: const EdgeInsets.only(left: 10),
+                        duration: const Duration(
+                          milliseconds: 500,
+                        ),
+                        width: _chengeConatinerWidth(),
+                        height: sizeOf.height * 0.008,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppLiterArtTheme.violetDark,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: sizeOf.height * 0.01),
-              child: _buildPageContent(),
-            )
-          ],
+              Expanded(
+                child: _buildPageContent(),
+              )
+            ],
+          ),
         ),
       ),
       //Botão flutuante
@@ -161,6 +163,10 @@ class _HomePageState extends State<HomePage> {
         onPressed: () async {
           //  Validações
           // Navigator.of(context).pushNamed('/report/first');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Search()),
+          );
         },
         label: const Text(
           "+",

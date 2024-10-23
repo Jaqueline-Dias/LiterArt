@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          height: 200,
+                          height: 100,
                         ),
                       ],
                     ),
@@ -74,8 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(45),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(65),
                       ),
                     ),
                     child: Form(
@@ -115,6 +115,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
 
 //Botão para entrar na aplicação
+                          const SizedBox(
+                            height: 32,
+                          ),
                           SizedBox(
                             width: sizeOf.width * .8,
                             height: 48,
@@ -145,6 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
 
+                          const SizedBox(
+                            height: 24,
+                          ),
 //Divisor
                           Padding(
                             padding: const EdgeInsets.only(bottom: 10),
@@ -173,6 +179,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
 
 //Botão de cadastro
+                          const SizedBox(
+                            height: 32,
+                          ),
                           SizedBox(
                             height: 50,
                             child: OutlinedButton(
@@ -182,8 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               onPressed: () {
-                                //O to é equivalente ao push
-                                // Get.toNamed(PagesRoutes.signUpScreen);
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/auth/register');
                               },
                               child: const Text(
                                 'Quero me cadastrar',
@@ -200,23 +209,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   )
                 ],
-              ),
-
-//Botão para voltar
-              Positioned(
-                left: 10,
-                top: 10,
-                child: SafeArea(
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

@@ -53,7 +53,9 @@ class _DonationFeedPageState extends State<DonationFeedPage> {
   @override
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
-    return SingleChildScrollView(
+    return SizedBox(
+      width: sizeOf.width,
+      height: sizeOf.height,
       child: Column(
         children: [
           const TextTitle(
@@ -94,7 +96,8 @@ class _DonationFeedPageState extends State<DonationFeedPage> {
               List<DocumentSnapshot> documentos = snapshot.data!.docs;
 
               return ListView.builder(
-                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true, // Limita o tamanho da lista
                 primary: false,
                 itemCount: documentos.length,
                 itemBuilder: (context, index) {
@@ -102,7 +105,8 @@ class _DonationFeedPageState extends State<DonationFeedPage> {
                       ModelDonation.fromDocument(documentos[index]);
 
                   return Card(
-                    margin: const EdgeInsets.only(left: 16, right: 16),
+                    margin:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 4),
                     color: Colors.white,
                     shadowColor: Colors.white,
                     child: Padding(
@@ -113,11 +117,11 @@ class _DonationFeedPageState extends State<DonationFeedPage> {
                           //Exibir o nome do usuário que registrou
                           Row(
                             children: [
-                              const Padding(
-                                padding: EdgeInsets.only(right: 5),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 5),
                                 child: CircleAvatar(
-                                  //backgroundImage:
-                                  //  NetworkImage(postagem.perfil!),
+                                  backgroundImage:
+                                      NetworkImage(postagem.profilePicture!),
                                   radius: 16,
                                 ),
                               ),
@@ -168,110 +172,120 @@ class _DonationFeedPageState extends State<DonationFeedPage> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 16),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Text(
+                                child: SizedBox(
+                                  width: sizeOf.width * .5,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
                                         '${(documentos[index]['title'])}',
                                         style: const TextStyle(
                                           fontSize: 16,
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Text(
-                                        '${(documentos[index]['author'])}',
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Chip(
-                                      label: Text(
-                                        documentos[index]['category']!,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: AppLiterArtTheme.violetDark,
+                                      Container(
+                                        alignment: Alignment.bottomLeft,
+                                        child: Text(
+                                          '${(documentos[index]['author'])}',
                                         ),
                                       ),
-                                      backgroundColor:
-                                          AppLiterArtTheme.violetLigth2,
-                                      side:
-                                          const BorderSide(color: Colors.white),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Chip(
-                                      label: Text(
-                                        documentos[index]['pageNumber']!
-                                            .toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: AppLiterArtTheme.violetDark,
-                                        ),
+                                      const SizedBox(
+                                        height: 8,
                                       ),
-                                      backgroundColor:
-                                          AppLiterArtTheme.violetLigth2,
-                                      side:
-                                          const BorderSide(color: Colors.white),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Container(),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BookDetailPage(
-                                                  title: documentos[index][
-                                                      'title'], // Passa o título do livro
-                                                  author: documentos[index][
-                                                      'author'], // Passa o autor do livro
-                                                  coverImage: postagem
-                                                      .bookCover!, // Passa a imagem da capa
-                                                  synopsis: documentos[index]
-                                                          ['synopsis'] ??
-                                                      'Descrição não disponível', // Passa a descrição, se disponível
+                                      Chip(
+                                        label: Text(
+                                          documentos[index]['category']!,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: AppLiterArtTheme.violetDark,
+                                          ),
+                                        ),
+                                        backgroundColor:
+                                            AppLiterArtTheme.violetLigth2,
+                                        side: const BorderSide(
+                                            color: Colors.white),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      Chip(
+                                        label: Text(
+                                          documentos[index]['pageNumber']!
+                                              .toString(),
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: AppLiterArtTheme.violetDark,
+                                          ),
+                                        ),
+                                        backgroundColor:
+                                            AppLiterArtTheme.violetLigth2,
+                                        side: const BorderSide(
+                                            color: Colors.white),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Container(),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BookDetailPage(
+                                                    title: documentos[index][
+                                                        'title'], // Passa o título do livro
+                                                    author: documentos[index][
+                                                        'author'], // Passa o autor do livro
+                                                    coverImage: postagem
+                                                        .bookCover!, // Passa a imagem da capa
+                                                    synopsis: documentos[index]
+                                                            ['synopsis'] ??
+                                                        'Descrição não disponível', // Passa a descrição, se disponível
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          },
-                                          child: Container(
-                                            width: sizeOf.width * 0.53,
-                                            height: sizeOf.height * 0.04,
-                                            decoration: const BoxDecoration(
-                                              color:
-                                                  AppLiterArtTheme.violetButton,
-                                              borderRadius: BorderRadius.only(
-                                                  bottomRight:
-                                                      Radius.circular(16),
-                                                  topLeft: Radius.circular(16)),
-                                            ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Ver mais detalhes',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
+                                              );
+                                            },
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 16),
+                                              child: Container(
+                                                width: sizeOf.width * 0.52,
+                                                height: sizeOf.height * 0.04,
+                                                decoration: const BoxDecoration(
+                                                  color: AppLiterArtTheme
+                                                      .violetButton,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  16),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  16)),
+                                                ),
+                                                child: const Center(
+                                                  child: Text(
+                                                    'Ver mais detalhes',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               )
                             ],

@@ -61,7 +61,17 @@ class _CustomTextFieldConfigState extends State<CustomTextFieldConfig> {
               : null,
           labelText: widget.label,
           isDense: true,
-          border: OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+                color: Colors.red), // Cor da borda em caso de erro
             borderRadius: BorderRadius.circular(18),
           ),
         ),
