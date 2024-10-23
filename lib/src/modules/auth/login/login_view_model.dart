@@ -12,6 +12,7 @@ class LoginViewModel {
       return credential.user;
     } catch (e) {
       print('Erro ao realizar login');
+      print('Erro ao realizar login');
     }
     return null;
   }
