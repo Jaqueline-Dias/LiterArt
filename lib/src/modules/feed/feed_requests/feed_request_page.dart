@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RequestFeedPage extends StatelessWidget {
-  const RequestFeedPage({super.key});
+class FeedRequestPage extends StatelessWidget {
+  const FeedRequestPage({super.key});
 
   @override
   Widget build(BuildContext context) {

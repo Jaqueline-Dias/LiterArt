@@ -6,10 +6,12 @@ class WidgetTextBook extends StatelessWidget {
     super.key,
     required this.text,
     required this.book,
+    required this.author,
   });
 
   final String text;
   final String book;
+  final String author;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,12 @@ class WidgetTextBook extends StatelessWidget {
           book,
           textAlign: TextAlign.right,
           style: AppLiterArtTheme.subTitleSplash,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '- $author',
+          textAlign: TextAlign.right,
+          style: AppLiterArtTheme.subtitleSplsh,
         ),
       ],
     );
