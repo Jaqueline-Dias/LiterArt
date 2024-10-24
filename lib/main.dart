@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 import 'package:app_liter_art/src/app_liter_art.dart';
-import 'package:app_liter_art/src/modules/donations/donation_feed_page.dart';
-import 'package:app_liter_art/src/modules/donations/widgets/category_books.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +27,6 @@ void main() {
 
     runApp(
       const AppLiterArt(),
-      //const AppLiterArt(),
-      //const DonationFeedPage(),
     );
   }, (error, stack) {
     log('Erro não tratado', error: error, stackTrace: stack);

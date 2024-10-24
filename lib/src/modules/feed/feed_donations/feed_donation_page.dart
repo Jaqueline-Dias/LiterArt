@@ -1,21 +1,21 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/model/model_donation.dart';
-import 'package:app_liter_art/src/modules/donations/book_details.dart';
-import 'package:app_liter_art/src/modules/donations/widgets/category_books.dart';
-import 'package:app_liter_art/src/modules/donations/widgets/category_section.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/book_details_page.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_books.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_section.dart';
 import 'package:app_liter_art/src/modules/home/widgets/text_title.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class DonationFeedPage extends StatefulWidget {
-  const DonationFeedPage({super.key});
+class FeedDonationPage extends StatefulWidget {
+  const FeedDonationPage({super.key});
 
   @override
-  State<DonationFeedPage> createState() => _DonationFeedPageState();
+  State<FeedDonationPage> createState() => _FeedDonationPageState();
 }
 
-class _DonationFeedPageState extends State<DonationFeedPage> {
+class _FeedDonationPageState extends State<FeedDonationPage> {
   var auth = FirebaseAuth.instance;
   var db = FirebaseFirestore.instance;
   int count = 0;

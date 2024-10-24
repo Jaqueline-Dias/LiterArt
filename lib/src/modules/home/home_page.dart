@@ -1,9 +1,9 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/modules/assessments/assessment_feed_page.dart';
-import 'package:app_liter_art/src/modules/donations/donation_feed_page.dart';
-import 'package:app_liter_art/src/modules/messages/message_feed_page.dart';
-import 'package:app_liter_art/src/modules/requests/request_feed_page.dart';
-import 'package:app_liter_art/src/modules/search/search.dart';
+import 'package:app_liter_art/src/modules/feed/feed_assessments/feed_assessment_page.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/feed_donation_page.dart';
+import 'package:app_liter_art/src/modules/feed/feed_messages/feed_message_page.dart';
+import 'package:app_liter_art/src/modules/feed/feed_requests/feed_request_page.dart';
+import 'package:app_liter_art/src/modules/liter_art_service/search/search_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,15 +56,15 @@ class _HomePageState extends State<HomePage> {
   Widget _buildPageContent() {
     switch (current) {
       case 0:
-        return const DonationFeedPage();
+        return const FeedDonationPage();
       case 1:
-        return const RequestFeedPage();
+        return const FeedRequestPage();
       case 2:
-        return const AssessmentFeedPage();
+        return const FeedAssessmentPage();
       case 3:
-        return const MessageFeedPage();
+        return const FeedMessagePage();
       default:
-        return const DonationFeedPage();
+        return const FeedDonationPage();
     }
   }
 
@@ -161,12 +161,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppLiterArtTheme.violetDark,
         extendedPadding: const EdgeInsets.all(24),
         onPressed: () async {
-          //  Validações
-          // Navigator.of(context).pushNamed('/report/first');
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Search()),
-          );
+          Navigator.of(context).pushNamed('/books/search');
         },
         label: const Text(
           "+",

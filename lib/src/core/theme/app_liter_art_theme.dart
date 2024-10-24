@@ -122,6 +122,12 @@ final class AppLiterArtTheme {
     fontWeight: FontWeight.w500,
   );
 
+  static const subtitleSplsh = TextStyle(
+    color: greyLigth,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+
   static const titleDescription = TextStyle(
     color: grey,
     fontSize: 18,
