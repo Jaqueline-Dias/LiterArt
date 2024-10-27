@@ -8,10 +8,11 @@ class ModelAssessment {
   String? author;
   String? category;
   int? pageNumber;
-  String? publicationDate;
+  Timestamp? publicationDate;
   int? pagesRead;
   String? comment;
   int? note;
+  String? profilePicture;
 
   ModelAssessment({
     this.assessmentUid,
@@ -25,6 +26,7 @@ class ModelAssessment {
     this.pagesRead,
     this.comment,
     this.note,
+    this.profilePicture,
   });
 
   Map<String, dynamic> toMap() {
@@ -40,6 +42,7 @@ class ModelAssessment {
       if (pagesRead != null) 'pagesRead': pagesRead,
       if (comment != null) 'comment': comment,
       if (note != null) 'note': note,
+      if (profilePicture != null) 'profilePicture': profilePicture,
     };
   }
 
@@ -54,6 +57,7 @@ class ModelAssessment {
         publicationDate = json['publicationDate'],
         pagesRead = json['pagesRead'],
         comment = json['comment'],
+        profilePicture = json['profilePicture'],
         note = json['note'];
 
   factory ModelAssessment.fromDocument(DocumentSnapshot doc) {
