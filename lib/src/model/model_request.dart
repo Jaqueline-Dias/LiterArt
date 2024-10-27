@@ -8,8 +8,9 @@ class ModelRequest {
   String? author;
   String? category;
   int? pageNumber;
-  String? publicationDate;
+  Timestamp? publicationDate;
   String? description;
+  String? profilePicture;
 
   ModelRequest({
     this.requestUid,
@@ -21,6 +22,7 @@ class ModelRequest {
     this.pageNumber,
     this.publicationDate,
     this.description,
+    this.profilePicture,
   });
 
   Map<String, dynamic> toMap() {
@@ -34,6 +36,7 @@ class ModelRequest {
       if (pageNumber != null) 'pageNumber': pageNumber,
       if (publicationDate != null) 'publicationDate': publicationDate,
       if (description != null) 'description': description,
+      if (profilePicture != null) 'profilePicture': profilePicture,
     };
   }
 
@@ -46,7 +49,8 @@ class ModelRequest {
         category = json['category'],
         pageNumber = json['pageNumber'],
         publicationDate = json['publicationDate'],
-        description = json['description'];
+        description = json['description'],
+        profilePicture = json['profilePicture'];
 
   factory ModelRequest.fromDocument(DocumentSnapshot doc) {
     final dados = doc.data()! as Map<String, dynamic>;

@@ -4,6 +4,7 @@ final class AppLiterArtTheme {
   static const violetLigth = Color(0xFFB691E5);
   static const violetBackground = Color(0xFFD8BAFF);
   static const violetDark = Color(0xFF7A15B2);
+  static const violet = Color(0xFF9747FF);
   static const violetButton = Color(0xFFB691E5);
   static const violetFillDark = Color(0xFFF1E8FF);
   static const violetFillligth = Color(0xFFDFD5F4);
@@ -13,6 +14,7 @@ final class AppLiterArtTheme {
   static const greyLigth = Color(0xFF707070);
   static const red = Color(0xFFEB1212);
   static const greyScaffoldBackgroundColor = Color(0xFFFEFAFF);
+  static const greyDrawer = Color(0xFFD9D9D9);
 
   static final _defaultInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16),
@@ -130,8 +132,8 @@ final class AppLiterArtTheme {
 
   static const titleDescription = TextStyle(
     color: grey,
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
   );
 
   static const titleSubDescription = TextStyle(

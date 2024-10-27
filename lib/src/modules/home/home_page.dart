@@ -3,7 +3,7 @@ import 'package:app_liter_art/src/modules/feed/feed_assessments/feed_assessment_
 import 'package:app_liter_art/src/modules/feed/feed_donations/feed_donation_page.dart';
 import 'package:app_liter_art/src/modules/feed/feed_messages/feed_message_page.dart';
 import 'package:app_liter_art/src/modules/feed/feed_requests/feed_request_page.dart';
-import 'package:app_liter_art/src/modules/liter_art_service/search/search_page.dart';
+import 'package:app_liter_art/src/modules/home/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -72,7 +72,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
     return Scaffold(
+      endDrawer: const MyDrawer(),
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('LiterArt'),
       ),
       body: SingleChildScrollView(
@@ -158,18 +160,17 @@ class _HomePageState extends State<HomePage> {
       //Botão flutuante
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: AppLiterArtTheme.violetDark,
-        extendedPadding: const EdgeInsets.all(24),
-        onPressed: () async {
+        backgroundColor: AppLiterArtTheme.violet,
+        shape: RoundedRectangleBorder(
+          // Define a forma personalizada
+          borderRadius: BorderRadius.circular(16), // Bordas arredondadas
+        ),
+        onPressed: () {
           Navigator.of(context).pushNamed('/books/search');
         },
-        label: const Text(
-          "+",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+        label: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );
