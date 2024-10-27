@@ -182,7 +182,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                           documentos[index]['category']!,
                                           style: const TextStyle(
                                             fontSize: 14,
-                                            color: AppLiterArtTheme.violetDark,
+                                            color: AppLiterArtTheme.violet,
                                           ),
                                         ),
                                         backgroundColor:
@@ -198,7 +198,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                           'Pág. ${documentos[index]['pageNumber']!.toString()}',
                                           style: const TextStyle(
                                             fontSize: 14,
-                                            color: AppLiterArtTheme.violetDark,
+                                            color: AppLiterArtTheme.violet,
                                           ),
                                         ),
                                         backgroundColor:

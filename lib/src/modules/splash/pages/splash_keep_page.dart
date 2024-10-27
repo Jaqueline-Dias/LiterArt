@@ -18,8 +18,6 @@ class _SplashKeepPageState extends State<SplashKeepPage> {
   late String _selectedAuthor;
   late AssetImage _selectedImage;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  var auth = FirebaseAuth.instance;
-  User? _user;
 
   final List<Map<String, dynamic>> quotesAndImages = [
     {
@@ -99,7 +97,6 @@ class _SplashKeepPageState extends State<SplashKeepPage> {
   void initState() {
     super.initState();
     _getRandomQuoteAndImage();
-    _user = FirebaseAuth.instance.currentUser;
   }
 
   @override

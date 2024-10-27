@@ -5,7 +5,6 @@ import 'package:app_liter_art/src/modules/home/widgets/list_tile_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -15,9 +14,9 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
   var auth = FirebaseAuth.instance;
-  User? _user;
+  // User? _user;
 
   @override
   Widget build(BuildContext context) {
