@@ -1,6 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/model/model_donation.dart';
-import 'package:app_liter_art/src/modules/feed/feed_donations/book_details_page.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_page.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_books.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_section.dart';
 import 'package:app_liter_art/src/modules/home/widgets/text_title.dart';
@@ -32,22 +32,6 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
       // O usuário não foi encontrado, retorna uma mensagem padrão ou tratamento de erro
       return 'Usuário desconhecido';
     }
-  }
-
-  List<Widget> _carrossel(List<dynamic> fotos) {
-    List<Widget> imagens = List.empty(growable: true);
-    for (String imagem in fotos) {
-      Padding temp = Padding(
-        padding: const EdgeInsets.only(left: 5, right: 5),
-        child: Image.network(
-          imagem,
-          fit: BoxFit.cover,
-          height: 200,
-        ),
-      );
-      imagens.add(temp);
-    }
-    return imagens;
   }
 
   @override
@@ -211,8 +195,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                       ),
                                       Chip(
                                         label: Text(
-                                          documentos[index]['pageNumber']!
-                                              .toString(),
+                                          'Pág. ${documentos[index]['pageNumber']!.toString()}',
                                           style: const TextStyle(
                                             fontSize: 14,
                                             color: AppLiterArtTheme.violetDark,
@@ -238,15 +221,34 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                                 MaterialPageRoute(
                                                   builder: (context) =>
                                                       BookDetailPage(
-                                                    title: documentos[index][
-                                                        'title'], // Passa o título do livro
-                                                    author: documentos[index][
-                                                        'author'], // Passa o autor do livro
-                                                    coverImage: postagem
-                                                        .bookCover!, // Passa a imagem da capa
+                                                    title: documentos[index]
+                                                        ['title'],
+                                                    author: documentos[index]
+                                                        ['author'],
+                                                    coverImage:
+                                                        postagem.bookCover!,
                                                     synopsis: documentos[index]
                                                             ['synopsis'] ??
-                                                        'Descrição não disponível', // Passa a descrição, se disponível
+                                                        'Descrição não disponível',
+                                                    pageNumber:
+                                                        documentos[index]
+                                                            ['pageNumber'],
+                                                    category: documentos[index]
+                                                        ['category'],
+                                                    language: documentos[index]
+                                                        ['language'],
+                                                    publicationDate:
+                                                        documentos[index]
+                                                            ['publicationDate'],
+                                                    conservation:
+                                                        documentos[index]
+                                                            ['conservation'],
+                                                    photos: documentos[index]
+                                                        ['photos'],
+                                                    profile: documentos[index]
+                                                        ['profile'],
+                                                    userUid: documentos[index]
+                                                        ['userUid'],
                                                   ),
                                                 ),
                                               );

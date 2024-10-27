@@ -11,7 +11,7 @@ class ModelDonation {
   String? language;
   String? synopsis;
   Timestamp? publicationDate;
-  bool? conservation;
+  String? conservation;
   List<dynamic>? photos;
   String? address;
   String? profilePicture;

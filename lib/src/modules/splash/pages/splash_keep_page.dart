@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:app_liter_art/src/modules/splash/pages/widgets/widget_background.dart';
 import 'package:app_liter_art/src/modules/splash/pages/widgets/widget_text_book.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashKeepPage extends StatefulWidget {
@@ -16,6 +17,9 @@ class _SplashKeepPageState extends State<SplashKeepPage> {
   late String _selectedBook;
   late String _selectedAuthor;
   late AssetImage _selectedImage;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  var auth = FirebaseAuth.instance;
+  User? _user;
 
   final List<Map<String, dynamic>> quotesAndImages = [
     {
@@ -95,6 +99,7 @@ class _SplashKeepPageState extends State<SplashKeepPage> {
   void initState() {
     super.initState();
     _getRandomQuoteAndImage();
+    _user = FirebaseAuth.instance.currentUser;
   }
 
   @override
@@ -121,8 +126,14 @@ class _SplashKeepPageState extends State<SplashKeepPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed('/splash/welcome');
+                      if (_auth.currentUser != null) {
+// Usuário está logado, redireciona para a home
+                        Navigator.of(context).pushReplacementNamed('/home');
+                      } else {
+// Usuário não está logado, redireciona para a tela de splash
+                        Navigator.of(context)
+                            .pushReplacementNamed('/splash/welcome');
+                      }
                     },
                     child: const Text(
                       'Continuar',
