@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(16), // Bordas arredondadas
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed('/books/search');
+          Navigator.of(context).pushNamed('/service/search');
         },
         label: const Icon(
           Icons.add,

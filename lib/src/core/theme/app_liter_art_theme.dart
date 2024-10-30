@@ -100,6 +100,12 @@ final class AppLiterArtTheme {
 
   static final darkTheme = lightTheme;
 
+  static const TextStyle authorMobileDateStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: grey,
+  );
+
   static const subTitleSmallStyle = TextStyle(
     color: grey,
     fontSize: 18,
