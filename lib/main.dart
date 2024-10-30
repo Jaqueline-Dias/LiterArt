@@ -25,6 +25,8 @@ void main() {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(options: Platform.isAndroid ? android : ios);
 
+    //HttpOverrides.global = CustomHttpOverrides();
+
     runApp(
       const AppLiterArt(),
     );
