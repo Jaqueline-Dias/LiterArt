@@ -1,15 +1,18 @@
 class ImageLinks {
-  String thumbnail;
+  final String? thumbnail; // Permite que thumbnail seja null
 
-  ImageLinks({required this.thumbnail});
+  ImageLinks({this.thumbnail});
 
   factory ImageLinks.fromApiJson(Map<String, dynamic> json) {
-    return ImageLinks(thumbnail: json['thumbnail']);
+    return ImageLinks(
+      thumbnail: json['thumbnail']
+          as String?, // Define como null se não estiver presente
+    );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'thumbnail': thumbnail,
+      if (thumbnail != null) 'thumbnail': thumbnail,
     };
   }
 }

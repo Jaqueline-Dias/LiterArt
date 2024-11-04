@@ -1,8 +1,8 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/screen/book_detail_screen.dart';
-import 'package:app_liter_art/src/widgets/authors_list_widget.dart';
-import 'package:app_liter_art/src/widgets/book_button_info_widget.dart';
+import 'package:app_liter_art/src/modules/widgets/authors_list_widget.dart';
+import 'package:app_liter_art/src/modules/widgets/book_button_info_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailWidget extends StatelessWidget {

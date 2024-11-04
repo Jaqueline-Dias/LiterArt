@@ -4,8 +4,11 @@ class VolumeInfo {
   String title;
   List<String> authors;
   String publishedDate;
+  List<String>? categories; // Para categorias
+  int? pageCount; // Para número de páginas
+  String? language; // Para idioma
   String description;
-  ImageLinks? imageLinks;
+  ImageLinks imageLinks;
 
   VolumeInfo({
     required this.title,
@@ -13,6 +16,9 @@ class VolumeInfo {
     required this.publishedDate,
     required this.description,
     required this.imageLinks,
+    required this.categories,
+    required this.language,
+    required this.pageCount,
   });
 
   factory VolumeInfo.fromApiJson(Map<String, dynamic> json) {
@@ -22,6 +28,9 @@ class VolumeInfo {
           ? []
           : List<String>.from(json['authors'].map((x) => x)),
       publishedDate: json['publishedDate'] ?? '',
+      categories: List<String>.from(json['categories'] ?? []),
+      pageCount: json['pageCount'],
+      language: json['language'],
       description: json['description'] ?? '',
       imageLinks: ImageLinks.fromApiJson(json['imageLinks'] ??
           {
@@ -36,8 +45,11 @@ class VolumeInfo {
       'title': title,
       'authors': authors,
       'publishedDate': publishedDate,
+      'categories': categories,
+      'pageCount': pageCount,
+      'language': language,
       'description': description,
-      'imageLinks': imageLinks!.toJson(),
+      'imageLinks': imageLinks.toJson(),
     };
   }
 }

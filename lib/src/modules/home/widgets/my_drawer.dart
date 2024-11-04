@@ -56,6 +56,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/home');
             },
@@ -64,6 +65,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed('/profile/donationHistory');
@@ -73,6 +75,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed('/profile/evaluationHistory');
@@ -82,6 +85,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/profile/bookshelf');
             },
@@ -90,6 +94,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed('/profile/achievementsHistory');
@@ -103,6 +108,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/about');
             },
@@ -111,6 +117,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/help');
             },
@@ -119,6 +126,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           ListTileDrawer(
+            size: const EdgeInsets.only(left: 32, bottom: 16),
             onTap: () {
               showDialog(
                 context: context,

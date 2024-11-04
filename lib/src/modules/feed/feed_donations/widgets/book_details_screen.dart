@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,8 @@ class BookDetailsScreen extends StatefulWidget {
 }
 
 class _BookDetailsScreenState extends State<BookDetailsScreen> {
+  final Utils utils = Utils();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -82,18 +85,28 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
           ),
         ),
         const SizedBox(height: 16),
-        //FORMATAÇÃO DA DATA
-        const Text('Doado em: 27 Abr. 2024',
-            style: TextStyle(color: AppLiterArtTheme.grey)),
+        Text('Doado em: ${utils.formatDate(widget.publicationDate)}',
+            style: const TextStyle(color: AppLiterArtTheme.grey)),
         Text('Estado de conservação: ${widget.conservation}',
             style: const TextStyle(color: AppLiterArtTheme.grey)),
         const SizedBox(height: 16),
-        const Text('Sinopse', style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text('Sinopse',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, color: AppLiterArtTheme.grey)),
         const SizedBox(height: 8),
-        Text(
-          widget.synopsis,
-          textAlign: TextAlign.justify,
-          style: const TextStyle(color: AppLiterArtTheme.grey),
+        Container(
+          height: 150,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: SingleChildScrollView(
+            child: Text(
+              widget.synopsis,
+              textAlign: TextAlign.justify,
+              style: const TextStyle(color: AppLiterArtTheme.grey),
+            ),
+          ),
         ),
       ],
     );

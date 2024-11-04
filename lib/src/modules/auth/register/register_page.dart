@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:validatorless/validatorless.dart';
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -167,7 +169,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         label: 'Nickname',
                         keyboardType: TextInputType.text,
                         controller: _nicknameEC,
-                        // validator: nameValidator,
+                        validator:
+                            Validatorless.required('Nickname obrigatório'),
                       ),
 
                       //Email
@@ -185,7 +188,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         label: 'Email',
                         keyboardType: TextInputType.emailAddress,
                         controller: _emailEC,
-                        // validator: emailValidator,
+                        validator: Validatorless.multiple([
+                          Validatorless.required('Email obrigatório'),
+                          Validatorless.email('Email inválido'),
+                        ]),
                       ),
 
                       //Senha
@@ -195,7 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         isSecret: true,
                         keyboardType: TextInputType.visiblePassword,
                         controller: _passwordEC,
-                        // validator: passwordValidator,
+                        validator: Validatorless.required('Senha obrigatória'),
                       ),
 
                       const SizedBox(

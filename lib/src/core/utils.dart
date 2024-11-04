@@ -1,26 +1,11 @@
 import 'dart:convert';
-
 import 'package:app_liter_art/src/model/models.dart';
-import 'package:app_liter_art/src/services/book_service.dart';
-import 'package:app_liter_art/src/widgets/favorites_books_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:app_liter_art/src/repositories/services/book_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Utils {
-  static const TextStyle authorMobileDateStyle = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    color: Color(0xFF6A6A6A),
-  );
-  static const TextStyle authorTabletDateStyle = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    color: Color(0xFF6A6A6A),
-  );
-  static const Color darkYellowColor = Color(0xFF786C44);
-  static const Color darkRedColor = Color(0xFF8B1E1E);
-
   static void getGoogleBooksInfo(String id, String volumeInfoTitle) {
     Uri bookUrl = Uri.parse(
       BookService.getBookUrl(id, volumeInfoTitle),
@@ -37,22 +22,25 @@ class Utils {
     return jsonBook;
   }
 
-  static Future<List<String>> getFavoritesBooks() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getStringList("favoritesBooks") ?? [];
-  }
+  String formatDate(dynamic date) {
+    try {
+      DateTime dateTime;
 
-  static void setFavoritesBooks(
-      List<String> savedFavBooks, Item book, String action) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (action == "add") {
-      savedFavBooks.add(bookToMap(book));
-    } else {
-      savedFavBooks.remove(bookToMap(book));
+      // Verifica se o tipo é Timestamp e converte para DateTime
+      if (date is Timestamp) {
+        dateTime = date.toDate();
+      } else if (date is String) {
+        dateTime = DateTime.parse(date);
+      } else {
+        throw const FormatException("Tipo de data inválido");
+      }
+
+      // Formatar a data como string
+      String formattedDate = DateFormat("dd/MM/yyyy").format(dateTime);
+
+      return formattedDate;
+    } catch (e) {
+      return 'Data inválida';
     }
-    await prefs.setStringList("favoritesBooks", savedFavBooks);
-    List<Item> favBooks =
-        savedFavBooks.map((map) => Item.fromApiItems(jsonDecode(map))).toList();
-    FavoritesBooksWidgetState.favoritesBooks.value = favBooks;
   }
 }

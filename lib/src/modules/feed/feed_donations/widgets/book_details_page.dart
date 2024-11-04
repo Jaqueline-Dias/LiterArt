@@ -2,6 +2,7 @@ import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_donor.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_galery.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_screen.dart';
+import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class BookDetailPage extends StatefulWidget {
   const BookDetailPage({
     super.key,
     required this.title,
-    required this.author,
+    required this.authors,
     required this.coverImage,
     required this.synopsis,
     required this.pageNumber,
@@ -18,12 +19,13 @@ class BookDetailPage extends StatefulWidget {
     required this.publicationDate,
     required this.conservation,
     required this.photos,
-    required this.profile,
+    required this.profilePicture,
     required this.userUid,
+    required this.nickname,
   });
 
   final String title;
-  final String author;
+  final String authors;
   final String coverImage;
   final String synopsis;
   final String category;
@@ -32,8 +34,9 @@ class BookDetailPage extends StatefulWidget {
   final int pageNumber;
   final Timestamp publicationDate;
   final String conservation;
-  final String profile;
   final String userUid;
+  final String nickname; // Novo campo
+  final String profilePicture;
 
   @override
   State<BookDetailPage> createState() => _BookDetailPageState();
@@ -46,7 +49,11 @@ class _BookDetailPageState extends State<BookDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalhes do livro'),
+        leading: const BottomNavigatorAppBar(),
+        title: const Text(
+          'Detalhes do livro',
+          style: AppLiterArtTheme.textInfoAppBar,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -74,7 +81,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
               ),
               Center(
                 child: Text(
-                  widget.author,
+                  widget.authors,
                   style: const TextStyle(fontSize: 14),
                 ),
               ),
@@ -149,8 +156,9 @@ class _BookDetailPageState extends State<BookDetailPage> {
 
       case 2: // Conteúdo da aba "Doador"
         return BookDetailsDonor(
-          profile: widget.profile,
+          profilePicture: widget.profilePicture,
           userUid: widget.userUid,
+          nickname: widget.nickname,
         );
 
       default:

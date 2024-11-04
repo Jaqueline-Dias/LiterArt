@@ -1,33 +1,22 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsDonor extends StatefulWidget {
   const BookDetailsDonor(
-      {super.key, required this.profile, required this.userUid});
+      {super.key,
+      required this.profilePicture,
+      required this.userUid,
+      required this.nickname});
 
-  final String profile;
+  final String profilePicture;
   final String userUid;
+  final String nickname;
 
   @override
   State<BookDetailsDonor> createState() => _BookDetailsDonorState();
 }
 
 class _BookDetailsDonorState extends State<BookDetailsDonor> {
-  //Retornar o nome do usuário que realizou o post
-  Future<String> _getUserName(String userId) async {
-    DocumentSnapshot userSnapshot =
-        await FirebaseFirestore.instance.collection('users').doc(userId).get();
-
-    if (userSnapshot.exists) {
-      // O usuário foi encontrado, retorna o nome
-      return userSnapshot['nickname'];
-    } else {
-      // O usuário não foi encontrado, retorna uma mensagem padrão ou tratamento de erro
-      return 'Usuário desconhecido';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
@@ -47,7 +36,7 @@ class _BookDetailsDonorState extends State<BookDetailsDonor> {
         Row(
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(widget.profile),
+              backgroundImage: NetworkImage(widget.profilePicture),
               radius: 24,
             ),
             const SizedBox(
@@ -56,19 +45,7 @@ class _BookDetailsDonorState extends State<BookDetailsDonor> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Usa FutureBuilder para aguardar o nome do usuário
-                FutureBuilder<String>(
-                  future: _getUserName(widget.userUid),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    } else if (snapshot.hasError) {
-                      return const Text('Erro ao carregar');
-                    } else {
-                      return Text(snapshot.data ?? 'Usuário desconhecido');
-                    }
-                  },
-                ),
+                Text(widget.nickname),
                 //GAMIFICAÇÃO
                 const Text('Mestre da imaginação'),
               ],

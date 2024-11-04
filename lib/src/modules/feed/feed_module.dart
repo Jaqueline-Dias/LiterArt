@@ -12,6 +12,6 @@ class FeedModule extends FlutterGetItModule {
   Map<String, WidgetBuilder> get pages => {
         '/feeddonation': (context) => const FeedAssessmentPage(),
         '/assessment': (context) => const AssessmentPage(),
-        '/request': (context) => const RequestPage(),
+        //'/request': (context) => const RequestPage(),
       };
 }

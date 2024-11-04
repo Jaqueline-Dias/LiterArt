@@ -1,3 +1,4 @@
+import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:flutter/material.dart';
 
 class EmptyResultsWidget extends StatelessWidget {
@@ -12,13 +13,13 @@ class EmptyResultsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: MediaQuery.of(context).size.height - 370,
+      // height: MediaQuery.of(context).size.height - 370,
       alignment: Alignment.center,
       child: Text(
         message,
         style: TextStyle(
           fontSize: deviceWidth < 500 ? 18.0 : 24.0,
-          color: Colors.white,
+          color: AppLiterArtTheme.violetButton,
           fontWeight: FontWeight.bold,
         ),
         textAlign: TextAlign.center,

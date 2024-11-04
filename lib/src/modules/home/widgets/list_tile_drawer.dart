@@ -8,11 +8,13 @@ class ListTileDrawer extends StatefulWidget {
     required this.onTap,
     required this.title,
     required this.image,
+    required this.size,
   });
 
   final VoidCallback onTap;
   final String title;
   final String image;
+  final EdgeInsets size;
 
   @override
   State<ListTileDrawer> createState() => _ListTileDrawerState();
@@ -22,7 +24,7 @@ class _ListTileDrawerState extends State<ListTileDrawer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 32, bottom: 16),
+      padding: widget.size,
       child: ListTile(
         leading: Container(
           padding: const EdgeInsets.all(8),

@@ -33,13 +33,24 @@ class BookImageWidget extends StatelessWidget {
           tag: book,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5.0),
-            child: FadeInImage.memoryNetwork(
-              placeholder: kTransparentImage,
-              image: book.volumeInfo.imageLinks!.thumbnail,
-              fit: BoxFit.fill,
-              width: 180,
-              height: 250,
-            ),
+            child: book.volumeInfo.imageLinks.thumbnail != null
+                ? FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: book.volumeInfo.imageLinks.thumbnail!,
+                    fit: BoxFit.fill,
+                    width: 180,
+                    height: 250,
+                  )
+                : Container(
+                    width: 180,
+                    height: 250,
+                    color: Colors.grey[300],
+                    child: const Icon(
+                      Icons.image_not_supported,
+                      color: Colors.grey,
+                      size: 40,
+                    ),
+                  ),
           ),
         ),
       ),

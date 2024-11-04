@@ -11,9 +11,9 @@ class LiterArtServiceModule extends FlutterGetItModule {
 
   @override
   Map<String, WidgetBuilder> get pages => {
-        '/donation': (context) => const DonationPage(),
-        '/assessment': (context) => const AssessmentPage(),
-        '/request': (context) => const RequestPage(),
+        // '/donation': (context) => const DonationPage(),
+        //'/assessment': (context) => const AssessmentPage(),
+        // '/request': (context) => const RequestPage(),
         '/search': (context) => const SearchPage(),
       };
 }
