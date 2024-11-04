@@ -11,16 +11,38 @@ class RegisterViewModel {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
+  // Função para verificar se o nickname já existe
+  Future<bool> isNicknameUnique(String nickname) async {
+    final querySnapshot = await _db
+        .collection('users')
+        .where('nickname', isEqualTo: nickname)
+        .get();
+
+    // Se a lista de documentos retornados tiver pelo menos um item, o nickname já existe
+    return querySnapshot.docs.isEmpty;
+  }
+
   // Método para registrar o usuário
   Future<User?> signUp({
     required String nickname,
     required BuildContext context,
     String? biography,
+    int? points = 50,
     required String email,
     required String password,
     XFile? image,
   }) async {
     try {
+      // Verifique se o nickname é único antes de prosseguir com o cadastro
+      bool isUnique = await isNicknameUnique(nickname);
+      if (!isUnique) {
+        // Exibe uma mensagem de erro e cancela o cadastro
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Nickname já está em uso!")),
+        );
+        return null; // Encerra o método se o nickname já existir
+      }
+
       // Criação do usuário no Firebase Authentication
       UserCredential result = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -48,37 +70,35 @@ class RegisterViewModel {
       await Future.delayed(const Duration(seconds: 2));
 
       // Adiciona esse usuário no firestore
-
       ModelUser userModel = ModelUser(
         userUid: result.user!.uid,
         nickname: nickname,
         biography: biography,
         email: email,
         profilePicture: fotoUrl,
+        points: points,
+        privacy: true,
       );
 
       await _db
           .collection('users')
           .doc(result.user!.uid)
           .set(userModel.toMap());
+
+      // Redireciona o usuário para a tela inicial após o cadastro bem-sucedido
+      if (context.mounted) {
+        Navigator.of(context).pushReplacementNamed('/home');
+      }
+
+      return result.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
-        //Email já em uso!
+        print('Email já em uso!');
       } else if (e.code == "weak-password") {
-        //Escolha uma senha mais complexa!
         print('Escolha uma senha mais complexa!');
       }
     } catch (e) {
-      //Não foi possível realizar o cadastro.
       print('Não foi possível realizar o cadastro.');
-    } finally {
-      // isLoading.value = false;
-
-      if (context.mounted) {
-        Navigator.of(context).pushReplacementNamed(
-            '/home'); // Só usa o context se ainda estiver montado
-      }
-      print('Cadastro realizado.');
     }
     return null;
   }

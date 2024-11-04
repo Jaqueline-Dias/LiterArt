@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFieldConfig extends StatefulWidget {
-  final IconData icon;
+  final IconData? icon;
   final String label;
   final bool isSecret;
   final String? initialValue;
@@ -12,7 +12,7 @@ class CustomTextFieldConfig extends StatefulWidget {
 
   const CustomTextFieldConfig({
     super.key,
-    required this.icon,
+    this.icon,
     required this.label,
     this.isSecret = false,
     this.controller,

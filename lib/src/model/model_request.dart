@@ -5,7 +5,7 @@ class ModelRequest {
   String? userUid;
   String? bookCover;
   String? title;
-  String? author;
+  String? authors;
   String? category;
   int? pageNumber;
   Timestamp? publicationDate;
@@ -17,7 +17,7 @@ class ModelRequest {
     this.userUid,
     this.bookCover,
     this.title,
-    this.author,
+    this.authors,
     this.category,
     this.pageNumber,
     this.publicationDate,
@@ -31,7 +31,7 @@ class ModelRequest {
       if (userUid != null) 'userUid': userUid,
       if (bookCover != null) 'bookCover': bookCover,
       if (title != null) 'title': title,
-      if (author != null) 'author': author,
+      if (authors != null) 'author': authors,
       if (category != null) 'category': category,
       if (pageNumber != null) 'pageNumber': pageNumber,
       if (publicationDate != null) 'publicationDate': publicationDate,
@@ -45,7 +45,7 @@ class ModelRequest {
         userUid = json['userUid'],
         bookCover = json['bookCover'],
         title = json['title'],
-        author = json['author'],
+        authors = json['author'],
         category = json['category'],
         pageNumber = json['pageNumber'],
         publicationDate = json['publicationDate'],
@@ -59,6 +59,6 @@ class ModelRequest {
 
   @override
   String toString() {
-    return "Solicitação: $requestUid\n Autor: $author";
+    return "Solicitação: $requestUid\n Autor: $authors";
   }
 }

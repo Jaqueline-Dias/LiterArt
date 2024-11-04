@@ -28,13 +28,14 @@ final class AppLiterArtTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: greyScaffoldBackgroundColor,
       titleTextStyle: TextStyle(
-        color: violetDark,
+        color: grey,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
       iconTheme: IconThemeData(
-        color: violetDark,
+        color: grey,
       ),
+      centerTitle: true,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: violetLigth,
@@ -104,6 +105,18 @@ final class AppLiterArtTheme {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: grey,
+  );
+
+  static const TextStyle textInfoSearch = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: violetButton,
+  );
+
+  static const TextStyle textInfoAppBar = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: violetButton,
   );
 
   static const subTitleSmallStyle = TextStyle(

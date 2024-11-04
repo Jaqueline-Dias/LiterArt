@@ -3,9 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ModelDonation {
   String? donationUid;
   String? userUid;
-  String? bookCover;
   String? title;
-  String? author;
+  String? authors;
+  String? bookCover;
   String? category;
   int? pageNumber;
   String? language;
@@ -19,9 +19,9 @@ class ModelDonation {
   ModelDonation({
     this.donationUid,
     this.userUid,
-    this.bookCover,
     this.title,
-    this.author,
+    this.authors,
+    this.bookCover,
     this.category,
     this.pageNumber,
     this.language,
@@ -37,9 +37,9 @@ class ModelDonation {
     return {
       if (donationUid != null) 'donationUid': donationUid,
       if (userUid != null) 'userUid': userUid,
-      if (bookCover != null) 'bookCover': bookCover,
       if (title != null) 'title': title,
-      if (author != null) 'author': author,
+      if (authors != null) 'authors': authors,
+      if (bookCover != null) 'bookCover': bookCover,
       if (category != null) 'category': category,
       if (pageNumber != null) 'pageNumber': pageNumber,
       if (language != null) 'language': language,
@@ -48,7 +48,7 @@ class ModelDonation {
       if (conservation != null) 'conservation': conservation,
       if (photos != null) 'photos': photos,
       if (address != null) 'address': address,
-      if (profilePicture != null) 'profile': profilePicture,
+      if (profilePicture != null) 'profilePicture': profilePicture
     };
   }
 
@@ -57,7 +57,7 @@ class ModelDonation {
         userUid = json['userUid'],
         bookCover = json['bookCover'],
         title = json['title'],
-        author = json['author'],
+        authors = json['authors'],
         category = json['category'],
         pageNumber = json['pageNumber'],
         language = json['language'],
@@ -75,6 +75,6 @@ class ModelDonation {
 
   @override
   String toString() {
-    return "Doação: $donationUid\n Autor: $author";
+    return 'ModelDonation(donationUid: $donationUid, userUid: $userUid, title: $title, bookCover: $bookCover, authors: $authors, category: $category, pageNumber: $pageNumber, language: $language, synopsis: $synopsis, publicationDate: $publicationDate, conservation: $conservation, photos: $photos, address: $address, profilePicture: $profilePicture)';
   }
 }

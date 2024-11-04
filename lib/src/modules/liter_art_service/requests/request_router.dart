@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/modules/liter_art_service/requests/request_page.dart';
+/*import 'package:app_liter_art/src/modules/liter_art_service/requests/request_page.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/requests/request_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
@@ -14,3 +14,4 @@ class RequestRouter extends FlutterGetItModulePageRouter {
   @override
   WidgetBuilder get view => (_) => const RequestPage();
 }
+*/

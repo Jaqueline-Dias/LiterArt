@@ -9,6 +9,7 @@ class ModelUser {
   String? biography;
   bool? privacy;
   List<dynamic>? bookshelf;
+  int? points;
 
   ModelUser({
     this.userUid,
@@ -19,6 +20,7 @@ class ModelUser {
     this.biography,
     this.privacy,
     this.bookshelf,
+    this.points,
   });
 
   Map<String, dynamic> toMap() {
@@ -31,6 +33,7 @@ class ModelUser {
       if (biography != null) 'biography': biography,
       if (privacy != null) 'privacy': privacy,
       if (bookshelf != null) 'bookshelf': bookshelf,
+      if (points != null) 'points': points,
     };
   }
 
@@ -42,7 +45,8 @@ class ModelUser {
         password = json['password'],
         biography = json['biography'],
         privacy = json['privacy'],
-        bookshelf = json['bookshelf'];
+        bookshelf = json['bookshelf'],
+        points = json['points'];
 
   factory ModelUser.fromDocument(DocumentSnapshot doc) {
     final dados = doc.data()! as Map<String, dynamic>;
