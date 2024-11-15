@@ -5,28 +5,26 @@ class ModelAssessment {
   String? userUid;
   String? bookCover;
   String? title;
-  String? author;
+  String? authors;
   String? category;
   int? pageNumber;
   Timestamp? publicationDate;
   int? pagesRead;
   String? comment;
-  int? note;
-  String? profilePicture;
+  double? note;
 
   ModelAssessment({
     this.assessmentUid,
     this.userUid,
     this.bookCover,
     this.title,
-    this.author,
+    this.authors,
     this.category,
     this.pageNumber,
     this.publicationDate,
     this.pagesRead,
     this.comment,
     this.note,
-    this.profilePicture,
   });
 
   Map<String, dynamic> toMap() {
@@ -35,14 +33,13 @@ class ModelAssessment {
       if (userUid != null) 'userUid': userUid,
       if (bookCover != null) 'bookCover': bookCover,
       if (title != null) 'title': title,
-      if (author != null) 'author': author,
+      if (authors != null) 'authors': authors,
       if (category != null) 'category': category,
       if (pageNumber != null) 'pageNumber': pageNumber,
       if (publicationDate != null) 'publicationDate': publicationDate,
       if (pagesRead != null) 'pagesRead': pagesRead,
       if (comment != null) 'comment': comment,
       if (note != null) 'note': note,
-      if (profilePicture != null) 'profilePicture': profilePicture,
     };
   }
 
@@ -51,13 +48,12 @@ class ModelAssessment {
         userUid = json['userUid'],
         bookCover = json['bookCover'],
         title = json['title'],
-        author = json['author'],
+        authors = json['authors'],
         category = json['category'],
         pageNumber = json['pageNumber'],
         publicationDate = json['publicationDate'],
         pagesRead = json['pagesRead'],
         comment = json['comment'],
-        profilePicture = json['profilePicture'],
         note = json['note'];
 
   factory ModelAssessment.fromDocument(DocumentSnapshot doc) {
@@ -67,6 +63,6 @@ class ModelAssessment {
 
   @override
   String toString() {
-    return "Solicitação: $assessmentUid\n Autor: $author";
+    return "Solicitação: $assessmentUid\n Autor: $authors";
   }
 }

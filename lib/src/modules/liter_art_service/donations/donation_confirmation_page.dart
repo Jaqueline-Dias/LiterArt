@@ -78,33 +78,7 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                 ],
               ),
         body: _isLoading
-            ? Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SpinKitPouringHourGlassRefined(
-                        color: AppLiterArtTheme.violetButton,
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      SvgPicture.asset(
-                          'assets/images/interface-interface-testing-01-9.svg'),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      const Text(
-                        'Realizando a postagem de doação, falta pouquinho...',
-                        textAlign: TextAlign.center,
-                        style: AppLiterArtTheme.textInfoSearch,
-                      ),
-                    ],
-                  ),
-                ),
-              )
+            ? const WidgetLoadingPost()
             : Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(

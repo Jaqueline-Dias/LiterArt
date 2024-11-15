@@ -13,7 +13,7 @@ class LiterArtServiceModule extends FlutterGetItModule {
   Map<String, WidgetBuilder> get pages => {
         // '/donation': (context) => const DonationPage(),
         //'/assessment': (context) => const AssessmentPage(),
-        // '/request': (context) => const RequestPage(),
+        '/request': (context) => const RequestPage(),
         '/search': (context) => const SearchPage(),
       };
 }

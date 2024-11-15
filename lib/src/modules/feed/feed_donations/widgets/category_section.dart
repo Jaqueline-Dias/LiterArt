@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/modules/home/widgets/text_title.dart';
+import 'package:app_liter_art/src/modules/widgets/text_title.dart';
 import 'package:flutter/material.dart';
 
 class CategorySection extends StatefulWidget {
