@@ -4,39 +4,39 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
-class FeedDonationsViewModel {
+class FeedRequestViewModel {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore db = FirebaseFirestore.instance;
   final Utils utils = Utils();
 
   // Estado de carregamento das doações
-  final Signal<List<Map<String, dynamic>>> donations = signal([]);
+  final Signal<List<Map<String, dynamic>>> requests = signal([]);
   final Signal<bool> isLoading = signal(true);
   final Signal<String?> errorMessage = signal(null);
 
-  FeedDonationsViewModel() {
-    fetchDonationsWithUserDetails();
+  FeedRequestViewModel() {
+    fetchRequestsWithUserDetails();
   }
 
-  Future<void> fetchDonationsWithUserDetails() async {
+  Future<void> fetchRequestsWithUserDetails() async {
     try {
       isLoading.value = true;
       errorMessage.value = null;
 
       QuerySnapshot snapshot = await db
-          .collection('donations')
+          .collection('requests')
           .orderBy('publicationDate', descending: true)
           .get();
 
-      List<Map<String, dynamic>> donationDataList = [];
+      List<Map<String, dynamic>> requestDataList = [];
 
       for (var document in snapshot.docs) {
-        ModelDonation docs = ModelDonation.fromDocument(document);
+        ModelRequest docs = ModelRequest.fromDocument(document);
         Map<String, dynamic> userDetails =
             await utils.getUserDetails(docs.userUid!);
-        donationDataList.add({'post': docs, 'user': userDetails});
+        requestDataList.add({'post': docs, 'user': userDetails});
       }
-      donations.value = donationDataList;
+      requests.value = requestDataList;
     } catch (e, stacktrace) {
       print("Erro ao recuperar os dados: $e");
       print("Stacktrace: $stacktrace");

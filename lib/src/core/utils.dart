@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Utils {
+  final FirebaseFirestore db = FirebaseFirestore.instance;
+
   static void getGoogleBooksInfo(String id, String volumeInfoTitle) {
     Uri bookUrl = Uri.parse(
       BookService.getBookUrl(id, volumeInfoTitle),
@@ -42,5 +44,21 @@ class Utils {
     } catch (e) {
       return 'Data inválida';
     }
+  }
+
+  Future<Map<String, dynamic>> getUserDetails(String userId) async {
+    DocumentSnapshot userSnapshot =
+        await db.collection('users').doc(userId).get();
+    return userSnapshot.exists
+        ? {
+            'nickname': userSnapshot['nickname'] ?? 'Usuário desconhecido',
+            'profilePicture': userSnapshot['profilePicture'] ??
+                'https://firebasestorage.googleapis.com/v0/b/literart-529e2.appspot.com/o/profile_default.png?alt=media&token=1aefd6f3-94bf-47ff-bd31-f304d543fdb1',
+          }
+        : {
+            'nickname': 'Usuário desconhecido',
+            'profilePicture':
+                'https://firebasestorage.googleapis.com/v0/b/literart-529e2.appspot.com/o/profile_default.png?alt=media&token=1aefd6f3-94bf-47ff-bd31-f304d543fdb1',
+          };
   }
 }

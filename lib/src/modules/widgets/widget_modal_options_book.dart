@@ -1,6 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/model/models.dart';
-import 'package:app_liter_art/src/modules/home/widgets/list_tile_drawer.dart';
+import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/assessments/assessment_page.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/donation_page.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/requests/request_page.dart';
@@ -99,8 +99,10 @@ class WidgetModalOptionsBook extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      AssessmentPage(book: book),
+                                  builder: (context) => AssessmentPage(
+                                    book: book,
+                                    isFromApi: isFromApi,
+                                  ),
                                 ),
                               );
                             },

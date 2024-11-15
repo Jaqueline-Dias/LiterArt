@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/modules/home/widgets/my_drawer.dart';
+import 'package:app_liter_art/src/modules/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AchievementsHistoryPage extends StatelessWidget {

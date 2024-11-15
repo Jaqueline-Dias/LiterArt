@@ -1,13 +1,14 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils.dart';
 import 'package:app_liter_art/src/model/model_donation.dart';
+import 'package:app_liter_art/src/modules/feed/feed_donations/feed_donations_view_model.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_page.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_books.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/category_section.dart';
-import 'package:app_liter_art/src/modules/home/widgets/text_title.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:signals_flutter/signals_flutter.dart';
 
 class FeedDonationPage extends StatefulWidget {
   const FeedDonationPage({super.key});
@@ -17,103 +18,62 @@ class FeedDonationPage extends StatefulWidget {
 }
 
 class _FeedDonationPageState extends State<FeedDonationPage> {
-  var auth = FirebaseAuth.instance;
-  var db = FirebaseFirestore.instance;
-  final Utils utils = Utils();
-
-  // Retorna o nome e a foto de perfil do usuário que realizou o post
-  Future<Map<String, dynamic>> _getUserDetails(String userId) async {
-    DocumentSnapshot userSnapshot =
-        await FirebaseFirestore.instance.collection('users').doc(userId).get();
-
-    if (userSnapshot.exists) {
-      return {
-        'nickname': userSnapshot['nickname'] ?? 'Usuário desconhecido',
-        'profilePicture': userSnapshot['profilePicture'] ??
-            'https://firebasestorage.googleapis.com/v0/b/literart-529e2.appspot.com/o/profile_default.png?alt=media&token=1aefd6f3-94bf-47ff-bd31-f304d543fdb1',
-      };
-    } else {
-      return {
-        'nickname': 'Usuário desconhecido',
-        'profilePicture':
-            'https://firebasestorage.googleapis.com/v0/b/literart-529e2.appspot.com/o/profile_default.png?alt=media&token=1aefd6f3-94bf-47ff-bd31-f304d543fdb1',
-      };
-    }
-  }
+  //final viewModel = Injector.get<FeedDonationsViewModel>();
+  final FeedDonationsViewModel _viewModel = FeedDonationsViewModel();
+  final Utils _utils = Utils();
 
   @override
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
-    return SizedBox(
-      width: sizeOf.width,
-      height: sizeOf.height,
-      child: Column(
+    return Scaffold(
+      body: Column(
         children: [
           const TextTitle(title: 'Vamos achar sua próxima leitura!'),
           const CategorySection(),
           const CategoryBooks(),
           const TextTitle(title: 'Últimos livros doados'),
           Expanded(
-            child: StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('donations')
-                  .orderBy('publicationDate', descending: true)
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
+            child: Watch(
+              (context) {
+                if (_viewModel.isLoading.value) {
                   return const Center(
-                    child: Text(
-                      "Erro ao recuperar os dados",
-                      style: TextStyle(color: Colors.red),
+                    child: SpinKitFadingCircle(
+                      color: AppLiterArtTheme.violetButton,
+                      size: 50.0,
                     ),
                   );
                 }
 
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                if (_viewModel.errorMessage.value != null) {
+                  return Center(
+                    child: Text(
+                      _viewModel.errorMessage.value!,
+                      style: const TextStyle(color: Colors.red),
+                    ),
                   );
                 }
 
-                List<DocumentSnapshot> documentos = snapshot.data!.docs;
-
+                final donationDataList = _viewModel.donations.value;
                 return ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: documentos.length,
+                  itemCount: donationDataList.length,
                   itemBuilder: (context, index) {
-                    ModelDonation postagem =
-                        ModelDonation.fromDocument(documentos[index]);
-
-                    return FutureBuilder<Map<String, dynamic>>(
-                      future: _getUserDetails(postagem.userUid!),
-                      builder: (context, userSnapshot) {
-                        if (userSnapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-
-                        if (userSnapshot.hasError) {
-                          return const Center(
-                            child: Text(
-                              "Erro ao carregar dados do usuário",
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          );
-                        }
-
-                        final userData = userSnapshot.data!;
-
-                        return Card(
-                          margin: const EdgeInsets.only(
-                              left: 16, right: 16, bottom: 4),
-                          color: Colors.white,
-                          shadowColor: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16, top: 16),
+                    final docs =
+                        donationDataList[index]['post'] as ModelDonation;
+                    final userData =
+                        donationDataList[index]['user'] as Map<String, dynamic>;
+                    return Card(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 4),
+                      color: Colors.white,
+                      elevation: 0.3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Row(
                                   children: [
@@ -128,8 +88,9 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                     Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Text(
-                                        utils.formatDate(documentos[index]
-                                            ["publicationDate"]),
+                                        _utils.formatDate(
+                                          docs.publicationDate,
+                                        ),
                                         style: const TextStyle(fontSize: 11),
                                       ),
                                     ),
@@ -139,28 +100,36 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                 Row(
                                   children: [
                                     Image.network(
-                                      postagem.bookCover!,
+                                      docs.bookCover!,
                                       fit: BoxFit.cover,
                                       height: 180,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 16),
                                       child: SizedBox(
-                                        width: sizeOf.width * .5,
+                                        width: sizeOf.width * .46,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              documentos[index]['title'],
+                                              docs.title ?? '',
                                               style:
                                                   const TextStyle(fontSize: 16),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
                                             ),
-                                            Text(documentos[index]['authors']),
+                                            Text(
+                                              docs.authors ?? '',
+                                              style:
+                                                  const TextStyle(fontSize: 14),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
+                                            ),
                                             const SizedBox(height: 8),
                                             Chip(
                                               label: Text(
-                                                documentos[index]['category'],
+                                                docs.category ?? '',
                                                 style: const TextStyle(
                                                   fontSize: 14,
                                                   color:
@@ -175,7 +144,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                             const SizedBox(height: 8),
                                             Chip(
                                               label: Text(
-                                                'Pág. ${documentos[index]['pageNumber']}',
+                                                'Pág. ${docs.pageNumber ?? ''}',
                                                 style: const TextStyle(
                                                   fontSize: 14,
                                                   color:
@@ -187,70 +156,65 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                               side: const BorderSide(
                                                   color: Colors.white),
                                             ),
-                                            const SizedBox(height: 8),
+                                            const SizedBox(height: 24),
                                           ],
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => BookDetailPage(
-                                          title: documentos[index]['title'],
-                                          authors: documentos[index]['authors'],
-                                          coverImage: postagem.bookCover!,
-                                          synopsis: documentos[index]
-                                                  ['synopsis'] ??
-                                              'Descrição não disponível',
-                                          pageNumber: documentos[index]
-                                              ['pageNumber'],
-                                          category: documentos[index]
-                                              ['category'],
-                                          language: documentos[index]
-                                              ['language'],
-                                          publicationDate: documentos[index]
-                                              ['publicationDate'],
-                                          conservation: documentos[index]
-                                              ['conservation'],
-                                          photos: documentos[index]['photos'],
-                                          userUid: documentos[index]['userUid'],
-                                          nickname: userData['nickname'],
-                                          profilePicture:
-                                              userData['profilePicture'],
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: sizeOf.width * 0.52,
-                                    height: sizeOf.height * 0.04,
-                                    decoration: const BoxDecoration(
-                                      color: AppLiterArtTheme.violetButton,
-                                      borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(16),
-                                        topLeft: Radius.circular(16),
-                                      ),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        'Ver mais detalhes',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
                           ),
-                        );
-                      },
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => BookDetailPage(
+                                      title: docs.title ?? '',
+                                      authors: docs.authors ?? '',
+                                      coverImage: docs.bookCover!,
+                                      synopsis: docs.synopsis ?? '',
+                                      pageNumber: docs.pageNumber ?? 0,
+                                      category: docs.category ?? '',
+                                      language: docs.language ?? '',
+                                      publicationDate: docs.publicationDate!,
+                                      conservation: docs.conservation ?? '',
+                                      photos: docs.photos ?? '',
+                                      userUid: docs.userUid ?? '',
+                                      nickname: userData['nickname'],
+                                      profilePicture:
+                                          userData['profilePicture'],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8, horizontal: 16),
+                                decoration: const BoxDecoration(
+                                  color: AppLiterArtTheme.violetButton,
+                                  borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(16),
+                                    topLeft: Radius.circular(16),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'Ver mais detalhes',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 );
@@ -259,6 +223,15 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/service/search');
+        },
+        backgroundColor: AppLiterArtTheme.violet,
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
+      floatingActionButtonLocation:
+          EndFloatWithMargin(marginRight: 20, marginBottom: 20),
     );
   }
 }

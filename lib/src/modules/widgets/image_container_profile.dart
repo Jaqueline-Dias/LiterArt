@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/modules/home/widgets/container_profile.dart';
+import 'package:app_liter_art/src/modules/widgets/container_profile.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainerProfile extends StatelessWidget {
