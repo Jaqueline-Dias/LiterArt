@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/modules/liter_art_service/assessments/assesment_view_model.dart';
+//import 'package:app_liter_art/src/modules/liter_art_service/assessments/assesment_view_model.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/widgets/donation_registration_confirm.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:app_liter_art/src/repositories/services/firestore/firestore_service_assessment.dart';
@@ -39,11 +39,11 @@ class _AssessmentConfirmationPageState
   double _rating = 0.0; // Avaliação inicial
   final _assessmentEC = TextEditingController();
 
-  final AssessmentViewModel _viewModel = AssessmentViewModel();
+  //final AssessmentViewModel _viewModel = AssessmentViewModel();
   final addressEC = TextEditingController();
   final FirestoreServiceAssessment _firestoreServiceAssessment =
       FirestoreServiceAssessment();
-  final List<File> _imagens = [];
+  // final List<File> _imagens = [];
   bool _isLoading = false;
   String? conservation;
 
