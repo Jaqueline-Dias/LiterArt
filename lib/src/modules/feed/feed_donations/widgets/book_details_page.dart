@@ -2,6 +2,7 @@ import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_donor.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_galery.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_screen.dart';
+import 'package:app_liter_art/src/modules/screen/chat_screen.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +103,17 @@ class _BookDetailPageState extends State<BookDetailPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 32, bottom: 24),
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChatScreen(
+                          receiverNickname: widget.nickname,
+                          receiverId: widget.userUid,
+                        ),
+                      ),
+                    );
+                  },
                   label: const Text('Iniciar chat'),
                   icon: const Icon(
                     Icons.chat,

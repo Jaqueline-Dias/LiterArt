@@ -15,6 +15,8 @@ final class AppLiterArtTheme {
   static const red = Color(0xFFEB1212);
   static const greyScaffoldBackgroundColor = Color(0xFFFEFAFF);
   static const greyDrawer = Color(0xFFD9D9D9);
+  static const chatSender = Color.fromARGB(255, 228, 203, 253);
+  static const chatReceiver = Color.fromARGB(255, 168, 131, 215);
 
   static final _defaultInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16),

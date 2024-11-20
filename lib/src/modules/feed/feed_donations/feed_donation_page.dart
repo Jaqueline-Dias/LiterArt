@@ -101,8 +101,9 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                   children: [
                                     Image.network(
                                       docs.bookCover!,
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.fitWidth,
                                       height: 180,
+                                      width: 125,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 16),
