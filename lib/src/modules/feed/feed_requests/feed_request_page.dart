@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/feed/feed_requests/feed_request_view_model.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
@@ -18,7 +19,7 @@ class FeedRequestPage extends StatefulWidget {
 class _FeedRequestPageState extends State<FeedRequestPage> {
   //final viewModel = Injector.get<FeedDonationsViewModel>();
   final FeedRequestViewModel _viewModel = FeedRequestViewModel();
-  final Utils _utils = Utils();
+  final LAUtils _utils = LAUtils();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _FeedRequestPageState extends State<FeedRequestPage> {
                 if (_viewModel.isLoading.value) {
                   return const Center(
                     child: SpinKitFadingCircle(
-                      color: AppLiterArtTheme.violetButton,
+                      color: LAColors.buttonPrimary,
                       size: 50.0,
                     ),
                   );
@@ -126,11 +127,10 @@ class _FeedRequestPageState extends State<FeedRequestPage> {
                                               docs.category ?? '',
                                               style: const TextStyle(
                                                 fontSize: 14,
-                                                color: AppLiterArtTheme.violet,
+                                                color: LAColors.primary,
                                               ),
                                             ),
-                                            backgroundColor:
-                                                AppLiterArtTheme.violetLigth2,
+                                            backgroundColor: LAColors.accent,
                                             side: const BorderSide(
                                                 color: Colors.white),
                                           ),
@@ -140,11 +140,10 @@ class _FeedRequestPageState extends State<FeedRequestPage> {
                                               'Pág. ${docs.pageNumber ?? ''}',
                                               style: const TextStyle(
                                                 fontSize: 14,
-                                                color: AppLiterArtTheme.violet,
+                                                color: LAColors.primary,
                                               ),
                                             ),
-                                            backgroundColor:
-                                                AppLiterArtTheme.violetLigth2,
+                                            backgroundColor: LAColors.accent,
                                             side: const BorderSide(
                                                 color: Colors.white),
                                           ),
@@ -197,7 +196,7 @@ class _FeedRequestPageState extends State<FeedRequestPage> {
         onPressed: () {
           Navigator.of(context).pushNamed('/service/search');
         },
-        backgroundColor: AppLiterArtTheme.violet,
+        backgroundColor: LAColors.primary,
         child: const Icon(Icons.add, color: Colors.white),
       ),
       floatingActionButtonLocation:

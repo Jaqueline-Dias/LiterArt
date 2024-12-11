@@ -1,8 +1,8 @@
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/home/home_view_model.dart';
 import 'package:app_liter_art/src/modules/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -78,8 +78,8 @@ class _HomePageState extends State<HomePage> {
                       viewModel.tabs[index],
                       style: TextStyle(
                         color: currentTab == index
-                            ? AppLiterArtTheme.violetDark
-                            : AppLiterArtTheme.grey,
+                            ? LAColors.violetDark
+                            : LAColors.textPrimary,
                         fontSize: currentTab == index ? 16 : 14,
                         fontWeight: currentTab == index
                             ? FontWeight.w400
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
             height: sizeOf.height * 0.008,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: AppLiterArtTheme.violetDark,
+              color: LAColors.violetDark,
             ),
           ),
         );

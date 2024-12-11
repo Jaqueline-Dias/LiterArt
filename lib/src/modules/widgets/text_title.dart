@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class TextTitle extends StatelessWidget {
@@ -18,9 +19,8 @@ class TextTitle extends StatelessWidget {
           style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.normal,
-              color: color == true
-                  ? AppLiterArtTheme.grey
-                  : AppLiterArtTheme.violetDark),
+              color:
+                  color == true ? LAColors.textPrimary : LAColors.violetDark),
         ),
       ),
     );

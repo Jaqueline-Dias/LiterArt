@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/feed/feed_assessments/feed_assessment_view_model.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
@@ -17,7 +18,7 @@ class FeedAssessmentPage extends StatefulWidget {
 class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
   //final viewModel = Injector.get<FeedDonationsViewModel>();
   final FeedAssessmentViewModel _viewModel = FeedAssessmentViewModel();
-  final Utils _utils = Utils();
+  final LAUtils _utils = LAUtils();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
                 if (_viewModel.isLoading.value) {
                   return const Center(
                     child: SpinKitFadingCircle(
-                      color: AppLiterArtTheme.violetButton,
+                      color: LAColors.buttonPrimary,
                       size: 50.0,
                     ),
                   );
@@ -133,11 +134,10 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
                                               docs.category ?? '',
                                               style: const TextStyle(
                                                 fontSize: 14,
-                                                color: AppLiterArtTheme.violet,
+                                                color: LAColors.primary,
                                               ),
                                             ),
-                                            backgroundColor:
-                                                AppLiterArtTheme.violetLigth2,
+                                            backgroundColor: LAColors.accent,
                                             side: const BorderSide(
                                                 color: Colors.white),
                                           ),
@@ -162,8 +162,8 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
                                                       value: progress,
                                                       backgroundColor:
                                                           Colors.grey[300],
-                                                      color: AppLiterArtTheme
-                                                          .violetButton,
+                                                      color: LAColors
+                                                          .buttonPrimary,
                                                     ),
                                                   ),
                                                   const SizedBox(width: 8),
@@ -171,8 +171,7 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
                                                     '${(progress * 100).toStringAsFixed(0)}%',
                                                     style: const TextStyle(
                                                       fontSize: 14,
-                                                      color: AppLiterArtTheme
-                                                          .violet,
+                                                      color: LAColors.primary,
                                                     ),
                                                   ),
                                                 ],
@@ -204,7 +203,7 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
                                       starIndex < rating
                                           ? Icons.star
                                           : Icons.star_border,
-                                      color: AppLiterArtTheme.violetButton,
+                                      color: LAColors.buttonPrimary,
                                       size: 20,
                                     );
                                   }),
@@ -227,7 +226,7 @@ class _FeedAssessmentPageState extends State<FeedAssessmentPage> {
         onPressed: () {
           Navigator.of(context).pushNamed('/service/search');
         },
-        backgroundColor: AppLiterArtTheme.violet,
+        backgroundColor: LAColors.primary,
         child: const Icon(Icons.add, color: Colors.white),
       ),
       floatingActionButtonLocation:

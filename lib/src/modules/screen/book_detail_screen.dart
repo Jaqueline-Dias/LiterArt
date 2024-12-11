@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           padding: EdgeInsets.only(left: 30.0),
           child: Text(
             'Detalhes do livro',
-            style: AppLiterArtTheme.textInfoAppBar,
+            style: LAAppTheme.textInfoAppBar,
           ),
         ),
         centerTitle: true,
@@ -80,10 +81,10 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                     children: [
                       BookButtonInfoWidget(
                         text: "Google Books",
-                        onPressedFn: () => Utils.getGoogleBooksInfo(
+                        onPressedFn: () => LAUtils.getGoogleBooksInfo(
                             widget.book.id, widget.book.volumeInfo.title),
                         icon: Icons.arrow_forward_ios_rounded,
-                        btnColor: AppLiterArtTheme.violetDark,
+                        btnColor: LAColors.violetDark,
                       ),
                       Stack(
                         children: [
@@ -117,7 +118,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                   child: const Icon(
                                     Icons.remove_red_eye,
                                     size: 20.5,
-                                    color: AppLiterArtTheme.violet,
+                                    color: LAColors.primary,
                                   ),
                                 ),
                               ),
@@ -132,11 +133,11 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                       widget.book.volumeInfo.publishedDate != ''
                           ? Text(
                               widget.book.volumeInfo.publishedDate,
-                              style: AppLiterArtTheme.authorMobileDateStyle,
+                              style: LAAppTheme.authorMobileDateStyle,
                             )
                           : const Text(
                               '',
-                              style: AppLiterArtTheme.authorMobileDateStyle,
+                              style: LAAppTheme.authorMobileDateStyle,
                             ),
                       const SizedBox(
                         height: 16,
@@ -181,7 +182,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                       height: 1.5,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: AppLiterArtTheme.grey,
+                      color: LAColors.textPrimary,
                     ),
                   ),
                 ),

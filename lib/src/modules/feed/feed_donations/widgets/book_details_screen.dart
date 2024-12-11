@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class BookDetailsScreen extends StatefulWidget {
 }
 
 class _BookDetailsScreenState extends State<BookDetailsScreen> {
-  final Utils utils = Utils();
+  final LAUtils utils = LAUtils();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: AppLiterArtTheme.violetLigth2,
+            color: LAColors.accent,
             borderRadius: BorderRadius.circular(10),
           ),
           padding: const EdgeInsets.all(16),
@@ -47,12 +48,12 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   Text(widget.pageNumber.toString(),
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppLiterArtTheme.violetDark)),
+                          color: LAColors.violetDark)),
                   const SizedBox(
                     height: 8,
                   ),
                   const Text('Páginas',
-                      style: TextStyle(color: AppLiterArtTheme.grey)),
+                      style: TextStyle(color: LAColors.textPrimary)),
                 ],
               ),
               Column(
@@ -60,12 +61,12 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   Text(widget.language,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppLiterArtTheme.violetDark)),
+                          color: LAColors.violetDark)),
                   const SizedBox(
                     height: 8,
                   ),
                   const Text('Idioma',
-                      style: TextStyle(color: AppLiterArtTheme.grey)),
+                      style: TextStyle(color: LAColors.textPrimary)),
                 ],
               ),
               Column(
@@ -73,12 +74,12 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   Text(widget.category,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppLiterArtTheme.violetDark)),
+                          color: LAColors.violetDark)),
                   const SizedBox(
                     height: 8,
                   ),
                   const Text('Categoria',
-                      style: TextStyle(color: AppLiterArtTheme.grey)),
+                      style: TextStyle(color: LAColors.textPrimary)),
                 ],
               ),
             ],
@@ -86,13 +87,13 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
         ),
         const SizedBox(height: 16),
         Text('Doado em: ${utils.formatDate(widget.publicationDate)}',
-            style: const TextStyle(color: AppLiterArtTheme.grey)),
+            style: const TextStyle(color: LAColors.textPrimary)),
         Text('Estado de conservação: ${widget.conservation}',
-            style: const TextStyle(color: AppLiterArtTheme.grey)),
+            style: const TextStyle(color: LAColors.textPrimary)),
         const SizedBox(height: 16),
         const Text('Sinopse',
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: AppLiterArtTheme.grey)),
+                fontWeight: FontWeight.bold, color: LAColors.textPrimary)),
         const SizedBox(height: 8),
         Container(
           height: 150,
@@ -104,7 +105,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
             child: Text(
               widget.synopsis,
               textAlign: TextAlign.justify,
-              style: const TextStyle(color: AppLiterArtTheme.grey),
+              style: const TextStyle(color: LAColors.textPrimary),
             ),
           ),
         ),

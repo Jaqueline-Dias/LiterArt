@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_donor.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_galery.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_screen.dart';
@@ -53,7 +54,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
         leading: const BottomNavigatorAppBar(),
         title: const Text(
           'Detalhes do livro',
-          style: AppLiterArtTheme.textInfoAppBar,
+          style: LAAppTheme.textInfoAppBar,
         ),
       ),
       body: SingleChildScrollView(
@@ -137,9 +138,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
       child: Text(
         title,
         style: TextStyle(
-          color: _selectedTabIndex == index
-              ? AppLiterArtTheme.violetDark
-              : Colors.grey,
+          color: _selectedTabIndex == index ? LAColors.violetDark : Colors.grey,
           fontWeight:
               _selectedTabIndex == index ? FontWeight.bold : FontWeight.normal,
         ),

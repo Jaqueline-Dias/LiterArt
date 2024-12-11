@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/itens.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/widgets/donation_registration_confirm.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/widgets/widget_text_field.dart';
@@ -126,7 +127,7 @@ class _RequestPageState extends State<RequestPage> {
               leading: const BottomNavigatorAppBar(),
               title: const Text(
                 'Nova solicitação',
-                style: AppLiterArtTheme.textInfoAppBar,
+                style: LAAppTheme.textInfoAppBar,
               ),
             ),
       body: _isLoading
@@ -159,7 +160,7 @@ class _RequestPageState extends State<RequestPage> {
                                     width: 122,
                                     height: 180,
                                     decoration: BoxDecoration(
-                                      color: AppLiterArtTheme.violetLigth2,
+                                      color: LAColors.accent,
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Column(
@@ -170,7 +171,7 @@ class _RequestPageState extends State<RequestPage> {
                                           'assets/images/camera-01.svg',
                                           colorFilter: ColorFilter.mode(
                                             _isImageSelected
-                                                ? AppLiterArtTheme.violetButton
+                                                ? LAColors.buttonPrimary
                                                 : Colors.red,
                                             BlendMode.srcIn,
                                           ),

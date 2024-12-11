@@ -62,14 +62,14 @@ class _AssessmentConfirmationPageState
               leading: const BottomNavigatorAppBar(),
               title: const Text(
                 'Nova avaliação',
-                style: AppLiterArtTheme.textInfoAppBar,
+                style: LAAppTheme.textInfoAppBar,
               ),
               actions: const [
                 Padding(
                   padding: EdgeInsets.only(right: 24),
                   child: Text(
                     '2/2',
-                    style: AppLiterArtTheme.textInfoAppBar,
+                    style: LAAppTheme.textInfoAppBar,
                   ),
                 )
               ],

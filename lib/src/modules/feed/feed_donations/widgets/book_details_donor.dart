@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsDonor extends StatefulWidget {
@@ -78,7 +79,7 @@ class _BookDetailsDonorState extends State<BookDetailsDonor> {
                               children: [
                                 Text(
                                   'Sobre o recebimento da doação',
-                                  style: AppLiterArtTheme.titleSubDescription,
+                                  style: LAAppTheme.titleSubDescription,
                                 ),
                                 Divider(),
                                 SizedBox(
@@ -87,7 +88,7 @@ class _BookDetailsDonorState extends State<BookDetailsDonor> {
                                 Text(
                                   'O aplicativo Bookshelf não se responsabiliza pela entrega das doações. Oferecemos um ambiente de chat para que você possa combinar com o doador as formas de entrega e recebimento do livro. Cuidado ao conversar com estranhos!',
                                   textAlign: TextAlign.justify,
-                                  style: AppLiterArtTheme.titleDescription,
+                                  style: LAAppTheme.titleDescription,
                                 ),
                               ],
                             ),
@@ -97,7 +98,7 @@ class _BookDetailsDonorState extends State<BookDetailsDonor> {
                 },
                 icon: const Icon(
                   Icons.info,
-                  color: AppLiterArtTheme.violetLigth,
+                  color: LAColors.secondary,
                 ))
           ],
         ),

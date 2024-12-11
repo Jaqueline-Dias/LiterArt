@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -55,7 +56,7 @@ class _BookDetailsGaleryState extends State<BookDetailsGalery> {
             ? const SizedBox(
                 height: 300,
                 child: SpinKitFadingCircle(
-                  color: AppLiterArtTheme.violetButton,
+                  color: LAColors.buttonPrimary,
                   size: 50.0,
                 ),
               )

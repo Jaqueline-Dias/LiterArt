@@ -1,4 +1,5 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/common/styles/styles.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/auth/register/register_view_model.dart';
 import 'package:app_liter_art/src/modules/auth/widgets/custom_text_field_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -57,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppLiterArtTheme.violetBackground,
+      backgroundColor: LAColors.violetBackground,
       body: SingleChildScrollView(
         child: SizedBox(
           height: size.height,
@@ -69,7 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/logo/logo.png',
                       height: 100,
                     ),
                   ],
@@ -98,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       const Center(
                         child: Text(
                           'Cadastre-se',
-                          style: AppLiterArtTheme.titleAlertDialog,
+                          style: LAStyles.titleAlertDialog,
                         ),
                       ),
                       const SizedBox(
@@ -152,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                                 child: IconButton(
                                   icon: const Icon(Icons.add_circle),
-                                  color: AppLiterArtTheme.violetButton,
+                                  color: LAColors.buttonPrimary,
                                   onPressed: () {
                                     _capturaFoto();
                                   },
@@ -240,7 +241,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               TextSpan(
                                 text: 'Fazer login',
                                 style: const TextStyle(
-                                  color: AppLiterArtTheme.grey, // Cor diferente
+                                  color: LAColors.textPrimary, // Cor diferente
                                   fontWeight: FontWeight.bold, // Negrito
                                 ),
                                 recognizer: TapGestureRecognizer()

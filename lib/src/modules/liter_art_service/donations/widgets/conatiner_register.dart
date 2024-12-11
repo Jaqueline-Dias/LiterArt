@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class ContainerRegister extends StatelessWidget {
@@ -18,7 +19,7 @@ class ContainerRegister extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: AppLiterArtTheme.violetFillligth,
+            color: LAColors.lightContainer,
           ),
         ),
         child: child,

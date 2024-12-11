@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/assessments/assessment_page.dart';
@@ -52,7 +53,7 @@ class WidgetModalOptionsBook extends StatelessWidget {
                             padding: EdgeInsets.only(top: 40),
                             child: Text(
                               'O que você deseja fazer com este livro?',
-                              style: AppLiterArtTheme.titleSubDescription,
+                              style: LAAppTheme.titleSubDescription,
                             ),
                           ),
                           const Divider(),
@@ -112,7 +113,7 @@ class WidgetModalOptionsBook extends StatelessWidget {
                           ),
                           const Text(
                             'Adicionar a minha estante',
-                            style: AppLiterArtTheme.titleSubDescription,
+                            style: LAAppTheme.titleSubDescription,
                           ),
                           const Divider(),
                           const SizedBox(
@@ -154,7 +155,7 @@ class WidgetModalOptionsBook extends StatelessWidget {
                     child: IconButton(
                       icon: const Icon(
                         Icons.close,
-                        color: AppLiterArtTheme.violetButton,
+                        color: LAColors.buttonPrimary,
                         size: 32,
                       ),
                       onPressed: () {
@@ -168,11 +169,11 @@ class WidgetModalOptionsBook extends StatelessWidget {
           },
         );
       },
-      label: Text(text ?? '', style: AppLiterArtTheme.textInfoSearch),
+      label: Text(text ?? '', style: LAAppTheme.textInfoSearch),
       icon: Icon(
         icon ?? Icons.add,
         size: 32,
-        color: AppLiterArtTheme.violetButton,
+        color: LAColors.buttonPrimary,
       ),
     );
   }

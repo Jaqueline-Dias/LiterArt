@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class ChatBubbleWidget extends StatelessWidget {
@@ -12,16 +13,14 @@ class ChatBubbleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: isCurrent
-              ? AppLiterArtTheme.chatSender
-              : AppLiterArtTheme.chatReceiver,
+          color: isCurrent ? LAColors.chatSender : LAColors.chatReceiver,
           borderRadius: BorderRadius.circular(12)),
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       child: Text(
         message,
         style:
-            TextStyle(color: isCurrent ? AppLiterArtTheme.grey : Colors.white),
+            TextStyle(color: isCurrent ? LAColors.textPrimary : Colors.white),
       ),
     );
   }

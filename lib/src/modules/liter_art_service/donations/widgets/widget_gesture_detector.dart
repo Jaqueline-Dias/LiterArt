@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class WidgetGestureDetector extends StatelessWidget {
@@ -15,7 +16,7 @@ class WidgetGestureDetector extends StatelessWidget {
         width: 122,
         height: 180,
         decoration: BoxDecoration(
-          color: AppLiterArtTheme.violetLigth2,
+          color: LAColors.accent,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: child,

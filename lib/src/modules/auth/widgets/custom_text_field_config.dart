@@ -1,3 +1,5 @@
+import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFieldConfig extends StatefulWidget {
@@ -47,7 +49,10 @@ class _CustomTextFieldConfigState extends State<CustomTextFieldConfig> {
         validator: widget.validator,
         keyboardType: widget.keyboardType,
         decoration: InputDecoration(
-          prefixIcon: Icon(widget.icon),
+          prefixIcon: Icon(
+            widget.icon,
+            color: LAColors.buttonPrimary,
+          ),
           suffixIcon: widget.isSecret
               ? IconButton(
                   onPressed: () {

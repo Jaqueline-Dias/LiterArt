@@ -5,7 +5,7 @@ import 'package:app_liter_art/src/modules/help/help_module.dart';
 import 'package:app_liter_art/src/modules/home/home_module.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/liter_art_service_module.dart';
 import 'package:app_liter_art/src/modules/profile/profile_module.dart';
-import 'package:app_liter_art/src/modules/splash/pages/splash_loading_page.dart';
+import 'package:app_liter_art/src/modules/splash/loading/splash_loading_page.dart';
 import 'package:app_liter_art/src/modules/splash/splash_module.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';

@@ -14,22 +14,40 @@ dependencies:
   logger: ^1.1.0
 
   cupertino_icons: ^1.0.8
+
+  #CONEXÃO COM OS SERVIÇOS DO FIREBASE
+
   firebase_core: ^2.29.0
   firebase_storage: ^11.7.1
   cloud_firestore: ^4.16.1
   firebase_auth: ^4.19.1
+
+  #GERÊNCIA DE ESTADOS
   signals_flutter: ^3.0.0
+
+  #GERÊNCIA DE DEPENDÊNCIAS
   flutter_getit: ^2.0.0
+
+  #OUTROS
   asyncstate: ^2.1.1-dev.1
+
+  #ANIMAÇÕES
   loading_animation_widget: ^1.2.0+4
   top_snackbar_flutter: ^3.1.0
-  flutter_svg: ^2.0.10+1
-  validatorless: ^1.2.3
-  image_picker: ^1.0.5
   smooth_page_indicator: ^1.1.0
   lottie: ^1.4.3
-  animate_do: ^3.0.2
+
+  #IMAGENS
+  flutter_svg: ^2.0.10+1
+  image_picker: ^1.0.5
   transparent_image: ^2.0.0
+
+  #VALIDAÇÕES
+  validatorless: ^1.2.3
+  
+  
+  animate_do: ^3.0.2
+  
   flutter_launcher_icons: ^0.11.0
   url_launcher: ^6.1.7
   simple_shadow: ^0.3.1
@@ -39,6 +57,7 @@ dependencies:
   intl: ^0.19.0
   path: ^1.8.0
   flutter_rating_bar: ^4.0.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -50,9 +69,17 @@ flutter:
 
   uses-material-design: true
 
+  #IMAGENS LOCALMENTE
+
   assets:
-    - assets/
     - assets/images/
+    - assets/images/logo/
+    - assets/images/splashs/
+    - assets/images/icons/delete.svg
+    - assets/images/icons/status.svg
+    
+
+  #FONTES
 
   fonts:
     - family: Montserrat

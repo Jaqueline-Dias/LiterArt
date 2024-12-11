@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/constants.dart';
 import 'package:app_liter_art/src/modules/widgets/dialog_app.dart';
 import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
@@ -79,7 +79,7 @@ class _MyDrawerState extends State<MyDrawer> {
             },
           ),
           const Divider(
-            color: AppLiterArtTheme.greyDrawer,
+            color: LAColors.greyDrawer,
           ),
           const Padding(
             padding: EdgeInsets.only(left: 24, bottom: 8, top: 16),
@@ -137,7 +137,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           const Divider(
-            color: AppLiterArtTheme.greyDrawer,
+            color: LAColors.greyDrawer,
           ),
 
           ListTileDrawer(

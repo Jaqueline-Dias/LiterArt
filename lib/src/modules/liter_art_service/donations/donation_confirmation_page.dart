@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/donations_view_model.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/widgets/donation_registration_confirm.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/widgets/widget_gesture_detector.dart';
@@ -64,14 +65,14 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                 leading: const BottomNavigatorAppBar(),
                 title: const Text(
                   'Nova doação',
-                  style: AppLiterArtTheme.textInfoAppBar,
+                  style: LAAppTheme.textInfoAppBar,
                 ),
                 actions: const [
                   Padding(
                     padding: EdgeInsets.only(right: 24),
                     child: Text(
                       '2/2',
-                      style: AppLiterArtTheme.textInfoAppBar,
+                      style: LAAppTheme.textInfoAppBar,
                     ),
                   )
                 ],
@@ -86,7 +87,7 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                     const SizedBox(height: 16),
                     const Text(
                       'Escolha até três imagens deste livro',
-                      style: AppLiterArtTheme.textInfoSearch,
+                      style: LAAppTheme.textInfoSearch,
                     ),
                     const SizedBox(height: 16),
                     SingleChildScrollView(
@@ -106,7 +107,7 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                                       width: 56,
                                       height: 56,
                                       decoration: BoxDecoration(
-                                        color: AppLiterArtTheme.violetLigth2,
+                                        color: LAColors.accent,
                                         borderRadius: BorderRadius.circular(16),
                                       ),
                                       child: SvgPicture.asset(
@@ -124,7 +125,7 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                       children: [
                         const Text(
                           'Estado de conservação',
-                          style: AppLiterArtTheme.textInfoSearch,
+                          style: LAAppTheme.textInfoSearch,
                         ),
                         const SizedBox(height: 8),
                         FormBuilderRadioGroup(
@@ -146,7 +147,7 @@ class _DonationConfirmationPageState extends State<DonationConfirmationPage> {
                     const SizedBox(height: 16),
                     const Text(
                       "Endereço de entrega (Opcional)",
-                      style: AppLiterArtTheme.textInfoSearch,
+                      style: LAAppTheme.textInfoSearch,
                     ),
                     const SizedBox(height: 8),
                     WidgetTextField(
