@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +7,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 class FeedDonationsViewModel {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore db = FirebaseFirestore.instance;
-  final Utils utils = Utils();
+  final LAUtils utils = LAUtils();
 
   // Estado de carregamento das doações
   final Signal<List<Map<String, dynamic>>> donations = signal([]);

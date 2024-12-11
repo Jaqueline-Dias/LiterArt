@@ -1,3 +1,4 @@
+import 'package:app_liter_art/src/common/styles/styles.dart';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -20,12 +21,12 @@ class DialogApp extends StatelessWidget {
     return AlertDialog(
       title: Text(
         title,
-        style: AppLiterArtTheme.titleAlertDialog,
+        style: LAStyles.titleAlertDialog,
         textAlign: TextAlign.center,
       ),
       content: Text(
         description,
-        style: AppLiterArtTheme.titleDescription,
+        style: LAAppTheme.titleDescription,
         textAlign: TextAlign.justify,
       ),
       actions: [
@@ -45,7 +46,7 @@ class DialogApp extends StatelessWidget {
               },
               child: const Text(
                 'Cancelar',
-                style: AppLiterArtTheme.subTitleSmallStyle,
+                style: LAAppTheme.subTitleSmallStyle,
               ),
             ),
           ],

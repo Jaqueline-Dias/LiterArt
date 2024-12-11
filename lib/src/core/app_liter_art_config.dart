@@ -48,8 +48,8 @@ class AppLiterArtConfig extends StatelessWidget {
                 Locale("pt"),
               ],
               debugShowCheckedModeBanner: false,
-              theme: AppLiterArtTheme.lightTheme,
-              darkTheme: AppLiterArtTheme.darkTheme,
+              theme: LAAppTheme.lightTheme,
+              darkTheme: LAAppTheme.darkTheme,
               navigatorObservers: [
                 navigatorObserver,
                 flutterGetItNavObserver,

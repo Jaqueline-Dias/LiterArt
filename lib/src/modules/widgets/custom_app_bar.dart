@@ -14,14 +14,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: const BottomNavigatorAppBar(),
       title: Text(
         title,
-        style: AppLiterArtTheme.textInfoAppBar,
+        style: LAAppTheme.textInfoAppBar,
       ),
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 24),
           child: Text(
             stepText,
-            style: AppLiterArtTheme.textInfoAppBar,
+            style: LAAppTheme.textInfoAppBar,
           ),
         ),
       ],

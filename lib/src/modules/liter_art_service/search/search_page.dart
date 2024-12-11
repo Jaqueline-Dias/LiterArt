@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/widgets.dart';
 import 'package:app_liter_art/src/responsive/mobile_scaffold.dart';
@@ -82,12 +83,12 @@ class _SearchPageState extends State<SearchPage> {
         leading: const BottomNavigatorAppBar(),
         title: const Text(
           'Busca de livros',
-          style: AppLiterArtTheme.textInfoAppBar,
+          style: LAAppTheme.textInfoAppBar,
         ),
         actions: const [
           Text(
             'Novo',
-            style: AppLiterArtTheme.textInfoSearch,
+            style: LAAppTheme.textInfoSearch,
           ),
           WidgetModalOptionsBook(
             isFromApi: false,
@@ -120,7 +121,7 @@ class _SearchPageState extends State<SearchPage> {
           onChanged: _startSearchWithDebounce,
           controller: searchController,
           textCapitalization: TextCapitalization.sentences,
-          style: const TextStyle(color: AppLiterArtTheme.grey),
+          style: const TextStyle(color: LAColors.textPrimary),
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.search,
@@ -131,7 +132,7 @@ class _SearchPageState extends State<SearchPage> {
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             hintStyle: TextStyle(
-              color: AppLiterArtTheme.violetButton,
+              color: LAColors.buttonPrimary,
               fontSize: size < 500 ? 14 : 16,
             ),
             border: const OutlineInputBorder(
@@ -139,7 +140,7 @@ class _SearchPageState extends State<SearchPage> {
               borderSide: BorderSide.none,
             ),
             filled: true,
-            fillColor: AppLiterArtTheme.violetLigth2,
+            fillColor: LAColors.accent,
             contentPadding: EdgeInsets.symmetric(
               vertical: size < 500 ? 10.0 : 12.0,
               horizontal: 20.0,

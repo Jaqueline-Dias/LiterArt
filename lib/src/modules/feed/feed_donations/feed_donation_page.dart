@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
-import 'package:app_liter_art/src/core/utils.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/model_donation.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/feed_donations_view_model.dart';
 import 'package:app_liter_art/src/modules/feed/feed_donations/widgets/book_details_page.dart';
@@ -20,7 +21,7 @@ class FeedDonationPage extends StatefulWidget {
 class _FeedDonationPageState extends State<FeedDonationPage> {
   //final viewModel = Injector.get<FeedDonationsViewModel>();
   final FeedDonationsViewModel _viewModel = FeedDonationsViewModel();
-  final Utils _utils = Utils();
+  final LAUtils _utils = LAUtils();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                 if (_viewModel.isLoading.value) {
                   return const Center(
                     child: SpinKitFadingCircle(
-                      color: AppLiterArtTheme.violetButton,
+                      color: LAColors.buttonPrimary,
                       size: 50.0,
                     ),
                   );
@@ -133,12 +134,10 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                                 docs.category ?? '',
                                                 style: const TextStyle(
                                                   fontSize: 14,
-                                                  color:
-                                                      AppLiterArtTheme.violet,
+                                                  color: LAColors.primary,
                                                 ),
                                               ),
-                                              backgroundColor:
-                                                  AppLiterArtTheme.violetLigth2,
+                                              backgroundColor: LAColors.accent,
                                               side: const BorderSide(
                                                   color: Colors.white),
                                             ),
@@ -148,12 +147,10 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                                 'Pág. ${docs.pageNumber ?? ''}',
                                                 style: const TextStyle(
                                                   fontSize: 14,
-                                                  color:
-                                                      AppLiterArtTheme.violet,
+                                                  color: LAColors.primary,
                                                 ),
                                               ),
-                                              backgroundColor:
-                                                  AppLiterArtTheme.violetLigth2,
+                                              backgroundColor: LAColors.accent,
                                               side: const BorderSide(
                                                   color: Colors.white),
                                             ),
@@ -198,7 +195,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 8, horizontal: 16),
                                 decoration: const BoxDecoration(
-                                  color: AppLiterArtTheme.violetButton,
+                                  color: LAColors.buttonPrimary,
                                   borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(16),
                                     topLeft: Radius.circular(16),
@@ -228,7 +225,7 @@ class _FeedDonationPageState extends State<FeedDonationPage> {
         onPressed: () {
           Navigator.of(context).pushNamed('/service/search');
         },
-        backgroundColor: AppLiterArtTheme.violet,
+        backgroundColor: LAColors.primary,
         child: const Icon(Icons.add, color: Colors.white),
       ),
       floatingActionButtonLocation:

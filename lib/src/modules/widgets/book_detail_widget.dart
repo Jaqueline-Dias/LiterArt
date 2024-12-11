@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/screen/book_detail_screen.dart';
 import 'package:app_liter_art/src/modules/widgets/authors_list_widget.dart';
@@ -35,11 +36,11 @@ class BookDetailWidget extends StatelessWidget {
         book.volumeInfo.publishedDate != ''
             ? Text(
                 book.volumeInfo.publishedDate,
-                style: AppLiterArtTheme.authorMobileDateStyle,
+                style: LAAppTheme.authorMobileDateStyle,
               )
             : const Text(
                 'Data de pubicação desconhecida.',
-                style: AppLiterArtTheme.authorMobileDateStyle,
+                style: LAAppTheme.authorMobileDateStyle,
               ),
         const SizedBox(height: 5.0),
         BookButtonInfoWidget(
@@ -52,7 +53,7 @@ class BookDetailWidget extends StatelessWidget {
             ),
           ),
           icon: Icons.arrow_forward_ios_rounded,
-          btnColor: AppLiterArtTheme.violetDark,
+          btnColor: LAColors.violetDark,
         ),
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/chat/chat_service.dart';
 import 'package:app_liter_art/src/modules/widgets/message_textfield.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,15 +41,15 @@ class ChatScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.arrow_back_ios_rounded,
-            color: AppLiterArtTheme.grey,
+            color: LAColors.textPrimary,
             size: 32,
           ),
         ),
         title: Text(
           receiverNickname,
-          style: const TextStyle(color: AppLiterArtTheme.grey),
+          style: const TextStyle(color: LAColors.textPrimary),
         ),
-        backgroundColor: AppLiterArtTheme.violetFillDark,
+        backgroundColor: LAColors.light,
       ),
       body: Column(
         children: [
@@ -121,7 +122,7 @@ class ChatScreen extends StatelessWidget {
           ),
           Container(
             decoration: const BoxDecoration(
-              color: AppLiterArtTheme.violetButton,
+              color: LAColors.buttonPrimary,
               shape: BoxShape.circle,
             ),
             margin: const EdgeInsets.only(top: 15, right: 15, bottom: 15),

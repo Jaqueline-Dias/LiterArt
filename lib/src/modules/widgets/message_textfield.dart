@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomChatTextField extends StatelessWidget {
@@ -14,11 +15,11 @@ class CustomChatTextField extends StatelessWidget {
         controller: controller,
         decoration: const InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppLiterArtTheme.violetFillligth),
+            borderSide: BorderSide(color: LAColors.lightContainer),
           ),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppLiterArtTheme.violetFillligth)),
-          fillColor: AppLiterArtTheme.violetLigth2,
+              borderSide: BorderSide(color: LAColors.lightContainer)),
+          fillColor: LAColors.accent,
           filled: true,
         ),
       ),

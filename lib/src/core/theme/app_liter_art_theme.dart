@@ -1,48 +1,32 @@
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
-final class AppLiterArtTheme {
-  static const violetLigth = Color(0xFFB691E5);
-  static const violetBackground = Color(0xFFD8BAFF);
-  static const violetDark = Color(0xFF7A15B2);
-  static const violet = Color(0xFF9747FF);
-  static const violetButton = Color(0xFFB691E5);
-  static const violetFillDark = Color(0xFFF1E8FF);
-  static const violetFillligth = Color(0xFFDFD5F4);
-  static const violetLigth2 = Color(0xFFF6EDFF);
-  static const violetDropMenu = Color(0xFFF1EBFF);
-  static const grey = Color(0xFF334252);
-  static const greyLigth = Color(0xFF707070);
-  static const red = Color(0xFFEB1212);
-  static const greyScaffoldBackgroundColor = Color(0xFFFEFAFF);
-  static const greyDrawer = Color(0xFFD9D9D9);
-  static const chatSender = Color.fromARGB(255, 228, 203, 253);
-  static const chatReceiver = Color.fromARGB(255, 168, 131, 215);
-
+final class LAAppTheme {
   static final _defaultInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16),
-    borderSide: const BorderSide(color: greyLigth),
+    borderSide: const BorderSide(color: LAColors.softGrey),
   );
 
   static final lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: violetDark),
+    colorScheme: ColorScheme.fromSeed(seedColor: LAColors.violetDark),
     useMaterial3: true,
     fontFamily: 'Montserrat',
     appBarTheme: const AppBarTheme(
-      backgroundColor: greyScaffoldBackgroundColor,
+      backgroundColor: LAColors.primaryBackground,
       titleTextStyle: TextStyle(
-        color: grey,
+        color: LAColors.textPrimary,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
       iconTheme: IconThemeData(
-        color: grey,
+        color: LAColors.textPrimary,
       ),
       centerTitle: true,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: violetLigth,
+      backgroundColor: LAColors.secondary,
     ),
-    scaffoldBackgroundColor: greyScaffoldBackgroundColor,
+    scaffoldBackgroundColor: LAColors.primaryBackground,
     dropdownMenuTheme: const DropdownMenuThemeData(
         inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(),
@@ -50,14 +34,14 @@ final class AppLiterArtTheme {
     inputDecorationTheme: InputDecorationTheme(
       isDense: true,
       filled: true,
-      fillColor: greyScaffoldBackgroundColor,
+      fillColor: LAColors.primaryBackground,
       labelStyle: const TextStyle(
         fontSize: 14,
-        color: violetLigth,
+        color: LAColors.secondary,
         fontWeight: FontWeight.w700,
       ),
       floatingLabelStyle: const TextStyle(
-        color: violetDark,
+        color: LAColors.violetDark,
         fontWeight: FontWeight.w600,
       ),
       border: _defaultInputBorder,
@@ -72,9 +56,9 @@ final class AppLiterArtTheme {
         padding: const EdgeInsets.symmetric(vertical: 16),
         backgroundColor: Colors.white,
         side: const BorderSide(
-          color: violetDark,
+          color: LAColors.violetDark,
         ),
-        foregroundColor: violetLigth,
+        foregroundColor: LAColors.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -88,7 +72,7 @@ final class AppLiterArtTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        backgroundColor: violetButton,
+        backgroundColor: LAColors.buttonPrimary,
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
@@ -106,31 +90,25 @@ final class AppLiterArtTheme {
   static const TextStyle authorMobileDateStyle = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: grey,
+    color: LAColors.textPrimary,
   );
 
   static const TextStyle textInfoSearch = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: violetButton,
+    color: LAColors.buttonPrimary,
   );
 
   static const TextStyle textInfoAppBar = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: violetButton,
+    color: LAColors.buttonPrimary,
   );
 
   static const subTitleSmallStyle = TextStyle(
-    color: grey,
+    color: LAColors.textPrimary,
     fontSize: 18,
     fontWeight: FontWeight.w500,
-  );
-
-  static const titleAlertDialog = TextStyle(
-    color: grey,
-    fontSize: 24,
-    fontWeight: FontWeight.w700,
   );
 
   static const title = TextStyle(
@@ -140,43 +118,43 @@ final class AppLiterArtTheme {
   );
 
   static const subtitleSmallDate = TextStyle(
-    color: grey,
+    color: LAColors.textPrimary,
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );
 
   static const subtitleSplsh = TextStyle(
-    color: greyLigth,
+    color: LAColors.softGrey,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
 
   static const titleDescription = TextStyle(
-    color: grey,
+    color: LAColors.textPrimary,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
   static const titleSubDescription = TextStyle(
-    color: grey,
+    color: LAColors.textPrimary,
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
 
   static const titleDescriptionDropDown = TextStyle(
-    color: violetDark,
+    color: LAColors.violetDark,
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
 
   static const titleSplash = TextStyle(
-    color: grey,
+    color: LAColors.textPrimary,
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
 
   static const subTitleSplash = TextStyle(
-    color: greyLigth,
+    color: LAColors.softGrey,
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );

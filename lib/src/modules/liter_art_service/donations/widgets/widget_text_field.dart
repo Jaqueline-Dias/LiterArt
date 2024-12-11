@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class WidgetTextField extends StatelessWidget {
@@ -27,7 +28,7 @@ class WidgetTextField extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         decoration: InputDecoration(
-          fillColor: AppLiterArtTheme.violetLigth2,
+          fillColor: LAColors.accent,
           labelText: label,
           isDense: true,
           enabledBorder: OutlineInputBorder(

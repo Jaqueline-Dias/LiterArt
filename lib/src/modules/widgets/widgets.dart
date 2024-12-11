@@ -19,3 +19,6 @@ export 'text_title.dart';
 export 'dialog_app.dart';
 export 'container_profile.dart';
 export 'floating_action_button.dart';
+export 'card_historys.dart';
+export 'widget_button_historys.dart';
+export 'widget_botton_delete_status.dart';

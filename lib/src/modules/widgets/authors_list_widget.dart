@@ -28,16 +28,16 @@ class AuthorsListWidget extends StatelessWidget {
         finalAuthors,
         overflow: TextOverflow.ellipsis,
         maxLines: 2,
-        style: AppLiterArtTheme.authorMobileDateStyle,
+        style: LAAppTheme.authorMobileDateStyle,
       );
     } else if (currentAuthors.length == 1) {
       return Text("Por ${currentAuthors[0]}.",
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: AppLiterArtTheme.authorMobileDateStyle);
+          style: LAAppTheme.authorMobileDateStyle);
     } else {
       return const Text('Desconhecido',
-          style: AppLiterArtTheme.authorMobileDateStyle);
+          style: LAAppTheme.authorMobileDateStyle);
     }
   }
 }

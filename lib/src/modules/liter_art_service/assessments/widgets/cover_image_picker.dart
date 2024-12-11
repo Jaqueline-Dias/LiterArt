@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/assessments/assesment_view_model.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class PlaceholderImage extends StatelessWidget {
       width: 122,
       height: 180,
       decoration: BoxDecoration(
-        color: AppLiterArtTheme.violetLigth2,
+        color: LAColors.accent,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Column(
@@ -66,7 +67,7 @@ class PlaceholderImage extends StatelessWidget {
           SvgPicture.asset(
             'assets/images/camera-01.svg',
             colorFilter: ColorFilter.mode(
-              isImageSelected ? AppLiterArtTheme.violetButton : Colors.red,
+              isImageSelected ? LAColors.buttonPrimary : Colors.red,
               BlendMode.srcIn,
             ),
           ),

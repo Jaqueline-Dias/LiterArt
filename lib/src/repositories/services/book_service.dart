@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:app_liter_art/src/core/utils/constants/const_api.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
@@ -12,7 +13,7 @@ class BookService {
 
   BookService({
     http.Client? client,
-    this.baseUrl = "https://www.googleapis.com/books/v1/volumes?q=",
+    this.baseUrl = lASecretAPIKeyGoogleBook,
     this.maxResults = 40,
   }) : client = client ?? http.Client();
 

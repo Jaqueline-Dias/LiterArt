@@ -1,4 +1,4 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigatorAppBar extends StatelessWidget {
@@ -10,7 +10,7 @@ class BottomNavigatorAppBar extends StatelessWidget {
       onPressed: () => Navigator.pop(context),
       icon: const Icon(
         Icons.arrow_back_ios_rounded,
-        color: AppLiterArtTheme.violetButton,
+        color: LAColors.buttonPrimary,
         size: 32,
       ),
     );

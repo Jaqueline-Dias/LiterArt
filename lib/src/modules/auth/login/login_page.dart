@@ -1,4 +1,5 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/common/styles/styles.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/auth/login/login_view_model.dart';
 import 'package:app_liter_art/src/modules/auth/widgets/custom_text_field_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
     final sizeOf = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      backgroundColor: AppLiterArtTheme.violetBackground,
+      backgroundColor: LAColors.violetBackground,
       body: SingleChildScrollView(
         child: SizedBox(
           height: sizeOf.height,
@@ -59,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/images/logo.png',
+                          'assets/images/logo/logo.png',
                           height: 100,
                         ),
                       ],
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                           const Center(
                               child: Text(
                             'Login',
-                            style: AppLiterArtTheme.titleAlertDialog,
+                            style: LAStyles.titleAlertDialog,
                           )),
                           const SizedBox(
                             height: 16,
@@ -198,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                                 'Quero me cadastrar',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: AppLiterArtTheme.grey,
+                                  color: LAColors.textPrimary,
                                   fontWeight: FontWeight.normal,
                                 ),
                               ),

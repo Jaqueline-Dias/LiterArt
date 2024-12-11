@@ -23,8 +23,8 @@ class ImageDefault extends StatelessWidget {
           children: [
             SvgPicture.asset(imageDeafult),
             const SizedBox(height: 20),
-            Text(textInfo1, style: AppLiterArtTheme.textInfoSearch),
-            Text(textInfo2, style: AppLiterArtTheme.textInfoSearch),
+            Text(textInfo1, style: LAAppTheme.textInfoSearch),
+            Text(textInfo2, style: LAAppTheme.textInfoSearch),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class DropdownButtonFormFieldLiterArt extends StatelessWidget {
@@ -35,7 +36,7 @@ class DropdownButtonFormFieldLiterArt extends StatelessWidget {
             child: Text(
               titleButton,
               style: const TextStyle(
-                color: AppLiterArtTheme.violetDark,
+                color: LAColors.violetDark,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -45,36 +46,33 @@ class DropdownButtonFormFieldLiterArt extends StatelessWidget {
               title,
               style: const TextStyle(
                   fontSize: 14,
-                  color: AppLiterArtTheme.violetButton,
+                  color: LAColors.buttonPrimary,
                   fontWeight: FontWeight.bold),
             ),
             decoration: InputDecoration(
               filled: true, // Necessário para definir a cor de fundo
-              fillColor: AppLiterArtTheme.violetLigth2, // Cor do interior
+              fillColor: LAColors.accent, // Cor do interior
               border: OutlineInputBorder(
                 borderRadius:
                     BorderRadius.circular(16), // Para bordas arredondadas
                 borderSide: const BorderSide(
-                  color: AppLiterArtTheme.violetLigth2, // Cor do contorno
+                  color: LAColors.accent, // Cor do contorno
                 ),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: const BorderSide(
-                  color: AppLiterArtTheme
-                      .violetLigth2, // Cor do contorno quando ativo
+                  color: LAColors.accent, // Cor do contorno quando ativo
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: const BorderSide(
-                  color:
-                      AppLiterArtTheme.violetLigth2, // Cor do contorno ao focar
+                  color: LAColors.accent, // Cor do contorno ao focar
                 ),
               ),
             ),
-            dropdownColor:
-                AppLiterArtTheme.violetLigth2, // Cor do menu suspenso
+            dropdownColor: LAColors.accent, // Cor do menu suspenso
             value: value,
             isExpanded: true,
             items: [
@@ -84,7 +82,7 @@ class DropdownButtonFormFieldLiterArt extends StatelessWidget {
                   child: Text(
                     category,
                     style: const TextStyle(
-                      color: AppLiterArtTheme.grey,
+                      color: LAColors.textPrimary,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -95,7 +93,7 @@ class DropdownButtonFormFieldLiterArt extends StatelessWidget {
                 child: Text(
                   titleDrop,
                   style: const TextStyle(
-                    color: AppLiterArtTheme.grey,
+                    color: LAColors.textPrimary,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

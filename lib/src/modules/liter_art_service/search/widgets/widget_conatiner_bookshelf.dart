@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,7 +25,7 @@ class WidgetConatinerBookshelf extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: AppLiterArtTheme.violetLigth2,
+                color: LAColors.accent,
                 width: 1, // Define a cor e largura da borda
               ),
             ),

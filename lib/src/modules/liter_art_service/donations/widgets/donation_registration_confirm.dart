@@ -22,7 +22,7 @@ class DonationRegistrationConfirm extends StatelessWidget {
               ),
               const Text(
                 'Doação realizada com sucesso!',
-                style: AppLiterArtTheme.authorMobileDateStyle,
+                style: LAAppTheme.authorMobileDateStyle,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -30,7 +30,7 @@ class DonationRegistrationConfirm extends StatelessWidget {
               ),
               const Text(
                 '+ 30 pontos de leitor',
-                style: AppLiterArtTheme.textInfoAppBar,
+                style: LAAppTheme.textInfoAppBar,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(

@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -29,7 +30,7 @@ class _ListTileDrawerState extends State<ListTileDrawer> {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppLiterArtTheme.violetLigth2,
+            color: LAColors.accent,
             borderRadius: BorderRadius.circular(8),
           ),
           child: SvgPicture.asset(
@@ -38,7 +39,7 @@ class _ListTileDrawerState extends State<ListTileDrawer> {
         ),
         title: Text(
           widget.title,
-          style: AppLiterArtTheme.titleDescription,
+          style: LAAppTheme.titleDescription,
         ),
         onTap: widget.onTap,
       ),

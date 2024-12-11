@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/book_detail_widget.dart';
 import 'package:app_liter_art/src/modules/widgets/book_image_widget.dart';
@@ -38,7 +39,7 @@ class MobileScaffold extends StatelessWidget {
                   child: SizedBox(
                     width: deviceWidth * 0.60,
                     child: Card(
-                      color: AppLiterArtTheme.violetLigth2,
+                      color: LAColors.accent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),

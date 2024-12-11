@@ -1,4 +1,5 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,7 +17,7 @@ class WidgetLoadingPost extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SpinKitPouringHourGlassRefined(
-              color: AppLiterArtTheme.violetButton,
+              color: LAColors.buttonPrimary,
             ),
             const SizedBox(
               height: 32,
@@ -29,7 +30,7 @@ class WidgetLoadingPost extends StatelessWidget {
             const Text(
               'Realizando a postagem, falta pouquinho...',
               textAlign: TextAlign.center,
-              style: AppLiterArtTheme.textInfoSearch,
+              style: LAAppTheme.textInfoSearch,
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
+import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/itens.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/donation_confirmation_page.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/donations/donations_view_model.dart';
@@ -108,14 +109,14 @@ class _DonationPageState extends State<DonationPage> {
         leading: const BottomNavigatorAppBar(),
         title: const Text(
           'Nova doação',
-          style: AppLiterArtTheme.textInfoAppBar,
+          style: LAAppTheme.textInfoAppBar,
         ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 24),
             child: Text(
               '1/2',
-              style: AppLiterArtTheme.textInfoAppBar,
+              style: LAAppTheme.textInfoAppBar,
             ),
           )
         ],
@@ -154,7 +155,7 @@ class _DonationPageState extends State<DonationPage> {
                               width: 122,
                               height: 180,
                               decoration: BoxDecoration(
-                                color: AppLiterArtTheme.violetLigth2,
+                                color: LAColors.accent,
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Column(
@@ -164,7 +165,7 @@ class _DonationPageState extends State<DonationPage> {
                                     'assets/images/camera-01.svg',
                                     colorFilter: ColorFilter.mode(
                                       _isImageSelected
-                                          ? AppLiterArtTheme.violetButton
+                                          ? LAColors.buttonPrimary
                                           : Colors.red,
                                       BlendMode.srcIn,
                                     ),
