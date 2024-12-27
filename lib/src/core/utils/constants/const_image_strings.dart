@@ -27,12 +27,29 @@ class LAImages {
   static const String onBoardingImage1 =
       "assets/images/on_boarding_images/sammy-line-searching.gif";
 
-  // -- Products
-  static const String productImage1 = "assets/images/products/nike-shoes.png";
+  // -- Medals
+  static const String medalImage8 =
+      'assets/images/gamification/medal8_snowglobe.svg';
+  static const String medalImage7 =
+      'assets/images/gamification/medal7_moon.svg';
+  static const String medalImage6 =
+      'assets/images/gamification/medal6_potion.svg';
+  static const String medalImage5 =
+      'assets/images/gamification/medal5_magician_hat.svg';
+  static const String medalImage4 =
+      'assets/images/gamification/medal4_crown.svg';
+  static const String medalImage3 =
+      'assets/images/gamification/medal3_sword.svg';
+  static const String medalImage2 =
+      'assets/images/gamification/medal2_moon.svg';
+  static const String medalImage1 =
+      'assets/images/gamification/medal1_cauldron.svg';
+  static const String medalImageDefault =
+      'assets/images/gamification/default_medal.svg';
 
-  // -- Product Reviews
-  static const String userProfileImage1 =
-      "assets/images/reviews/review_profile_image_1.jpg";
+  // -- Points
+  static const String pointsIcon =
+      'assets/images/gamification/points_diamond.svg';
 
   //Banners splash
   static const String splashPequenoPrincipe1 =

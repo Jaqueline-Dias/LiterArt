@@ -13,7 +13,7 @@ class LAColors {
 
   // Background colors
   static const Color light = Color(0xFFF1E8FF);
-  static const Color dark = Color(0xFF272727);
+  static const Color dark = Color(0xFF334252);
   static const Color primaryBackground = Color(0xFFFEFAFF);
 
   // Background Container colors

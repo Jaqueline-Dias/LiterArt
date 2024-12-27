@@ -10,8 +10,8 @@ class LATexts {
   static const String lAContinue = "Continuar";
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Escolha seu produto";
-  static const String onBoardingTitle2 = "Selecione o Método de Pagamento";
+  static const String onBoardingTitle1 = 'Erro ao carregar pontos';
+  static const String onBoardingTitle2 = 'Sem dados de pontos';
   static const String onBoardingTitle3 = "Entrega na sua porta";
 
   static const String onBoardingSubTitle1 =
@@ -64,12 +64,15 @@ class LATexts {
   static const String yourAccountCreatedSubTitle =
       "Bem-vindo ao seu destino definitivo de compras: Sua conta foi criada, aproveite a alegria de fazer compras online sem interrupções!";
 
-  // -- Product
-  static const String popularProducts = "Produtos Populares";
-
   // -- Home
   static const String homeAppbarTitle = "Bom dia para compras";
   static const String homeAppbarSubTitle = "Taimoor Sikander";
+
+  // -- Achievement
+  static const String currentAchievement = 'Seu título atual';
+  static const String myAchievements = 'Minhas conquistas';
+  static const String myTitles = 'Meus títulos';
+  static const String allTitles = 'Todos os títulos';
 
   // -- Names authors
   static const String authorPequenoPrinicipe = "Antoine de Saint-Exupéry";
@@ -119,4 +122,16 @@ class LATexts {
   static const String book = "book";
   static const String author = "author";
   static const String image = "image";
+
+  // -- Medals
+  static const String titleMedal8 = 'Mestre da imaginação';
+  static const String titleMedal7 = 'Escultor de sonhos';
+  static const String titleMedal6 = 'Mágico das palavras';
+  static const String titleMedal5 = 'Alquimista da leitura';
+  static const String titleMedal4 = 'Mestre das páginas';
+  static const String titleMedal3 = 'Caçador de tesouros';
+  static const String titleMedal2 = 'Conquistador';
+  static const String titleMedal1 = 'Aprendiz de histórias';
+  static const String titleMedalDefault = 'Sem título';
+  static const String titleBlocked = 'Título bloqueado';
 }

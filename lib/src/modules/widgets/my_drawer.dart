@@ -1,7 +1,7 @@
 import 'package:app_liter_art/src/core/utils/constants/constants.dart';
 import 'package:app_liter_art/src/modules/widgets/dialog_app.dart';
 import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

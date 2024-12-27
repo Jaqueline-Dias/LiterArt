@@ -60,7 +60,7 @@ class UserProfilePage extends StatelessWidget {
                   }
                   final userData = snapshot.data!;
                   final nickname = userData['nickname'] ?? 'Usuário';
-                  final points = userData['points'] ?? '0';
+                  final points = userData['points'] ?? '50';
                   final profilePicture = userData['profilePicture'] ??
                       'https://via.placeholder.com/150';
                   final biography = userData['biography'] ?? '';
@@ -169,7 +169,8 @@ class UserProfilePage extends StatelessWidget {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       GamificationPage(
-                                                        points: points,
+                                                        userUid:
+                                                            userData['userUid'],
                                                       )),
                                             );
                                           },
