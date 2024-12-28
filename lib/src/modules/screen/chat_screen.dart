@@ -1,4 +1,3 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/chat/chat_service.dart';
 import 'package:app_liter_art/src/modules/widgets/message_textfield.dart';

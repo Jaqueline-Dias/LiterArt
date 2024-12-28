@@ -75,8 +75,11 @@ flutter:
     - assets/images/
     - assets/images/logo/
     - assets/images/splashs/
-    - assets/images/icons/delete.svg
-    - assets/images/icons/status.svg
+    - assets/images/gamification/
+    - assets/images/icons/
+    - assets/book-search.json
+    - assets/icon-home.json
+    
     
 
   #FONTES

@@ -1,7 +1,8 @@
 import 'package:app_liter_art/src/core/utils/constants/constants.dart';
+import 'package:app_liter_art/src/modules/profile/gamification/gamification_page.dart';
 import 'package:app_liter_art/src/modules/widgets/dialog_app.dart';
 import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -52,134 +53,159 @@ class _MyDrawerState extends State<MyDrawer> {
 
               final userData = snapshot.data!;
               final nickname = userData['nickname'] ?? 'Usuário';
+              final userUid = userData['userUid'] ?? '';
               final profilePicture = userData['profilePicture'] ??
-                  'https://via.placeholder.com/150'; // URL de fallback
+                  'https://via.placeholder.com/150';
 
               return Padding(
-                padding: const EdgeInsets.only(top: 42, left: 24, bottom: 8),
+                padding: const EdgeInsets.only(top: 42, left: 0, bottom: 8),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushReplacementNamed('/profile/user');
-                      },
-                      child: CircleAvatar(
-                        radius: 40,
-                        backgroundImage: NetworkImage(profilePicture),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/profile/user');
+                            },
+                            child: CircleAvatar(
+                              radius: 40,
+                              backgroundImage: NetworkImage(profilePicture),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text('@$nickname',
+                              style: const TextStyle(fontSize: 16)),
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 8,
+
+                    const Divider(
+                      color: LAColors.greyDrawer,
                     ),
-                    Text('@$nickname', style: const TextStyle(fontSize: 16)),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 24, bottom: 8, top: 16),
+                      child: Text(
+                        'Menu',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    // Itens do menu
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/home');
+                      },
+                      title: 'Home',
+                      image: 'assets/images/home-line.svg',
+                    ),
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed('/profile/donationHistory');
+                      },
+                      title: 'Minhas doações',
+                      image: LAImages.iconDonation,
+                    ),
+
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed('/profile/evaluationHistory');
+                      },
+                      title: 'Minhas avaliações',
+                      image: LAImages.iconAssessment,
+                    ),
+
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/profile/bookshelf');
+                      },
+                      title: 'Minha estante',
+                      image: 'assets/images/bookmark.svg',
+                    ),
+
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GamificationPage(
+                              userUid: userUid,
+                            ),
+                          ),
+                        );
+                      },
+                      title: 'Minhas conquistas',
+                      image: 'assets/images/award-03.svg',
+                    ),
+
+                    const Divider(
+                      color: LAColors.greyDrawer,
+                    ),
+
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/about');
+                      },
+                      title: 'Sobre nós',
+                      image: 'assets/images/info-octagon.svg',
+                    ),
+
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/help');
+                      },
+                      title: 'Ajuda',
+                      image: 'assets/images/help-octagon.svg',
+                    ),
+                    ListTileDrawer(
+                      size: const EdgeInsets.only(
+                          left: LASizes.sm, bottom: LASizes.sm),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return DialogApp(
+                              description:
+                                  'Tem certeza que deseja sair do aplicativo? Sua conta será desconectada.',
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                _auth.signOut(); // Deslogar o usuário logado
+                                SystemNavigator.pop(); // Sair do aplicativo
+                              },
+                              title: 'Confirmar saída',
+                              titleButton: 'Sair',
+                            );
+                          },
+                        );
+                      },
+                      title: 'Logout',
+                      image: 'assets/images/log-out-04.svg',
+                    ),
                   ],
                 ),
               );
             },
-          ),
-          const Divider(
-            color: LAColors.greyDrawer,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 24, bottom: 8, top: 16),
-            child: Text(
-              'Menu',
-              style: TextStyle(fontSize: 18),
-            ),
-          ),
-          // Itens do menu
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/home');
-            },
-            title: 'Home',
-            image: 'assets/images/home-line.svg',
-          ),
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed('/profile/donationHistory');
-            },
-            title: 'Minhas doações',
-            image: 'assets/images/heart-hand.svg',
-          ),
-
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed('/profile/evaluationHistory');
-            },
-            title: 'Minhas avaliações',
-            image: 'assets/images/star-01.svg',
-          ),
-
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/profile/bookshelf');
-            },
-            title: 'Minha estante',
-            image: 'assets/images/bookmark.svg',
-          ),
-
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed('/profile/achievementsHistory');
-            },
-            title: 'Minhas conquistas',
-            image: 'assets/images/award-03.svg',
-          ),
-
-          const Divider(
-            color: LAColors.greyDrawer,
-          ),
-
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/about');
-            },
-            title: 'Sobre nós',
-            image: 'assets/images/info-octagon.svg',
-          ),
-
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/help');
-            },
-            title: 'Ajuda',
-            image: 'assets/images/help-octagon.svg',
-          ),
-          ListTileDrawer(
-            size: const EdgeInsets.only(left: 32, bottom: 16),
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return DialogApp(
-                    description:
-                        'Tem certeza que deseja sair do aplicativo? Sua conta será desconectada.',
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      _auth.signOut(); // Deslogar o usuário logado
-                      SystemNavigator.pop(); // Sair do aplicativo
-                    },
-                    title: 'Confirmar saída',
-                    titleButton: 'Sair',
-                  );
-                },
-              );
-            },
-            title: 'Logout',
-            image: 'assets/images/log-out-04.svg',
-          ),
+          )
         ],
       ),
     );

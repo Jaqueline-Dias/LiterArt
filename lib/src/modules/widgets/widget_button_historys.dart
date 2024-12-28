@@ -1,10 +1,13 @@
 import 'package:app_liter_art/src/core/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LAButtonHistorys extends StatelessWidget {
-  const LAButtonHistorys({super.key, required this.title, this.onTap});
+  const LAButtonHistorys(
+      {super.key, required this.title, this.onTap, required this.icon});
 
   final String title;
+  final String icon;
   final void Function()? onTap;
 
   @override
@@ -17,7 +20,7 @@ class LAButtonHistorys extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(16)),
-            color: LAColors.chatSender,
+            color: LAColors.accent,
           ),
           height: 50,
           child: Row(
@@ -25,16 +28,16 @@ class LAButtonHistorys extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(color: LAColors.darkerGrey),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: LAColors.textPrimary,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
                 width: 16,
               ),
-              const Icon(
-                Icons.add,
-                color: LAColors.primary,
-              ),
+              SvgPicture.asset(icon),
             ],
           ),
         ),

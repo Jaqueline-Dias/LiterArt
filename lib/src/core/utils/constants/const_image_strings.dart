@@ -4,7 +4,7 @@
 
 class LAImages {
   // -- App Logos
-  static const String darkAppLogo = "assets/images/logo/logo.png";
+  static const String darkAppLogo = 'assets/images/logo/logo.png';
   static const String lightAppLogo =
       "assets/logos/t-store-splash-logo-white.png";
 
@@ -13,11 +13,13 @@ class LAImages {
   static const String facebook = "assets/logos/facebook-icon.png";
 
   // -- Category Icons
-  static const String sportIcon =
-      "assets/icons/categories/icons8-bowling-64.png";
+  static const String iconDonation = 'assets/images/icons/heart-hand.svg';
+  static const String iconAssessment = 'assets/images/icons/star-01.svg';
 
   // -- Brand Icons
-  static const String nikeLogo = "assets/icons/brands/nike.png";
+  static const String donationIcon = 'assets/images/icons/donation_profile.svg';
+  static const String assessmentIcon =
+      'assets/images/icons/book_assessments.svg';
 
   // -- Animations
   static const String productsIllustration =
@@ -27,12 +29,29 @@ class LAImages {
   static const String onBoardingImage1 =
       "assets/images/on_boarding_images/sammy-line-searching.gif";
 
-  // -- Products
-  static const String productImage1 = "assets/images/products/nike-shoes.png";
+  // -- Medals
+  static const String medalImage8 =
+      'assets/images/gamification/medal8_snowglobe.svg';
+  static const String medalImage7 =
+      'assets/images/gamification/medal7_moon.svg';
+  static const String medalImage6 =
+      'assets/images/gamification/medal6_potion.svg';
+  static const String medalImage5 =
+      'assets/images/gamification/medal5_magician_hat.svg';
+  static const String medalImage4 =
+      'assets/images/gamification/medal4_crown.svg';
+  static const String medalImage3 =
+      'assets/images/gamification/medal3_sword.svg';
+  static const String medalImage2 =
+      'assets/images/gamification/medal2_moon.svg';
+  static const String medalImage1 =
+      'assets/images/gamification/medal1_cauldron.svg';
+  static const String medalImageDefault =
+      'assets/images/gamification/default_medal.svg';
 
-  // -- Product Reviews
-  static const String userProfileImage1 =
-      "assets/images/reviews/review_profile_image_1.jpg";
+  // -- Points
+  static const String pointsIcon =
+      'assets/images/gamification/points_diamond.svg';
 
   //Banners splash
   static const String splashPequenoPrincipe1 =

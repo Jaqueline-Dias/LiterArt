@@ -55,14 +55,14 @@ class _DonationHistoryPageState extends State<DonationHistoryPage> {
       endDrawer: const MyDrawer(),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.of(context).pushReplacementNamed('/home'),
+          onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.arrow_back_ios_rounded,
             color: LAColors.buttonPrimary,
             size: 32,
           ),
         ),
-        title: const Text('Suas doações'),
+        title: const Text(LATexts.donationsHistoryAppbar),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -71,13 +71,15 @@ class _DonationHistoryPageState extends State<DonationHistoryPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               LAButtonHistorys(
-                title: 'Vamos fazer mais uma doação?',
+                icon: LAImages.iconDonation,
+                title: LATexts.donationsHistoryTitle1,
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/service/search');
+                  Navigator.of(context).pushNamed('/service/search');
                 },
               ),
+              const SizedBox(height: 24),
               const Text(
-                "Livros disponíveis para doação",
+                LATexts.donationsHistoryTitle2,
                 style: LAAppTheme.authorMobileDateStyle,
               ),
               StreamBuilder<QuerySnapshot>(
@@ -93,12 +95,9 @@ class _DonationHistoryPageState extends State<DonationHistoryPage> {
                   if (snapshot.hasError ||
                       !snapshot.hasData ||
                       snapshot.data!.docs.isEmpty) {
-                    return const Center(
-                        child: Text("Nenhuma doação ativa encontrada."));
+                    return const Center(child: Text(LATexts.onBoardingTitle3));
                   }
-
                   final List<DocumentSnapshot> donations = snapshot.data!.docs;
-
                   return SizedBox(
                     height: MediaQuery.of(context).size.width * 0.65,
                     child: ListView.builder(

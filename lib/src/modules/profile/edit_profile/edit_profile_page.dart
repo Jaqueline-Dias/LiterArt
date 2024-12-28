@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/auth/widgets/custom_text_field_config.dart';
 import 'package:app_liter_art/src/modules/profile/user/user_profile_page.dart';
@@ -9,8 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../../widgets/bottom_navigator_app_bar.dart';
 import '../user/widgets/modal_settings.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -31,38 +27,34 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   // Função para atualizar os dados do usuário no Firebase
   Future<void> updateUserData() async {
-    if (_arquivoImagem == null) return;
-
     try {
-      // Pegando o ID do usuário atual
       User? user = auth.currentUser;
       if (user != null) {
-        // Criando referência para o Firebase Storage
-        final storageRef = FirebaseStorage.instance.ref();
-        final profilePicRef =
-            storageRef.child('profile').child('${user.uid}.jpg');
+        String? imageUrl;
 
-        // Fazendo upload da imagem
-        await profilePicRef.putFile(File(_arquivoImagem!.path));
+        if (_arquivoImagem != null) {
+          final storageRef = FirebaseStorage.instance.ref();
+          final profilePicRef =
+              storageRef.child('profile').child('${user.uid}.jpg');
 
-        // Obtendo a URL de download da imagem
-        String imageUrl = await profilePicRef.getDownloadURL();
+          await profilePicRef.putFile(File(_arquivoImagem!.path));
+          imageUrl = await profilePicRef.getDownloadURL();
+        }
 
-        // Atualizando a URL da imagem no Firestore
         await firestore.collection('users').doc(user.uid).update({
-          'profilePicture': imageUrl,
+          if (imageUrl != null) 'profilePicture': imageUrl,
+          'nickname': nicknameController.text.trim(),
+          'email': emailController.text.trim(),
+          'biography': biographyController.text.trim(),
         });
 
-        // Mostrar mensagem de sucesso
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Imagem de perfil atualizada com sucesso!')),
+          const SnackBar(content: Text('Atualizado com sucesso!')),
         );
       }
     } catch (e) {
-      // Caso ocorra um erro
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao atualizar imagem de perfil')),
+        const SnackBar(content: Text('Erro ao atualizar dados')),
       );
     }
   }
@@ -81,7 +73,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const BottomNavigatorAppBar(),
+        leading: IconButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const UserProfilePage()),
+          ),
+          icon: const Icon(
+            Icons.arrow_back_ios_rounded,
+            color: LAColors.buttonPrimary,
+            size: 32,
+          ),
+        ),
         title: const Text('Editar dados pessoais'),
         actions: const [LAModalSettings()],
       ),
@@ -205,14 +207,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         ),
                         const SizedBox(height: 24),
                         ElevatedButton(
-                          onPressed: () {
-                            updateUserData();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const UserProfilePage()),
-                            );
+                          onPressed: () async {
+                            await updateUserData();
+                            setState(() {});
                           },
                           child: const Text('Salvar alterações'),
                         ),

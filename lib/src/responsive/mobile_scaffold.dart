@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/book_detail_widget.dart';
