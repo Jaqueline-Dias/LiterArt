@@ -1,4 +1,3 @@
-import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/core/utils/utils.dart';
 import 'package:app_liter_art/src/model/model_donation.dart';

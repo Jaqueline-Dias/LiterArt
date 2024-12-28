@@ -5,17 +5,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class LACardHistorys extends StatelessWidget {
-  const LACardHistorys(
-      {super.key,
-      this.date,
-      this.imageBook,
-      this.title,
-      this.authors,
-      this.category,
-      this.pageNumber,
-      this.onTap,
-      required this.docId,
-      this.buttonStatus = true});
+  const LACardHistorys({
+    super.key,
+    this.date,
+    this.imageBook,
+    this.title,
+    this.authors,
+    this.category,
+    this.pageNumber,
+    this.onTap,
+    required this.docId,
+    this.buttonStatus = true,
+    this.assessment = false,
+    this.pagesRead,
+    this.comment,
+    this.note,
+    this.onTapDelete,
+  });
 
   final dynamic date;
   final String? imageBook;
@@ -24,8 +30,13 @@ class LACardHistorys extends StatelessWidget {
   final String? category;
   final String? pageNumber;
   final void Function()? onTap;
+  final void Function()? onTapDelete;
   final String docId;
+  final String? comment;
   final bool buttonStatus;
+  final bool assessment;
+  final int? pagesRead;
+  final double? note;
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +105,24 @@ class LACardHistorys extends StatelessWidget {
                           const SizedBox(
                             height: 8,
                           ),
+                          assessment == true
+                              ? Text(
+                                  '$category',
+                                  style: const TextStyle(
+                                    color: LAColors.secondary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              : Container(),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          assessment == true
+                              ? Text('${LATexts.onBoardingTitle4} $pagesRead')
+                              : Container(),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           buttonStatus
                               ? LABottonDeleteStatus(
                                   imageIcon: 'assets/images/icons/status.svg',
@@ -114,42 +143,47 @@ class LACardHistorys extends StatelessWidget {
                           LABottonDeleteStatus(
                             imageIcon: 'assets/images/icons/delete.svg',
                             titleIcon: 'Excluir',
-                            onTap: () {},
+                            onTap: onTapDelete,
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                assessment == true ? const SizedBox(height: 16) : Container(),
+                assessment == true ? Text('$comment') : Container(),
+                assessment == false ? const SizedBox(height: 16) : Container(),
+                assessment == true ? Text('Sua nota: $note') : Container()
               ],
             ),
           ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: GestureDetector(
-              onTap: onTap,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                decoration: const BoxDecoration(
-                  color: LAColors.buttonPrimary,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(16),
-                    topLeft: Radius.circular(16),
+          assessment == false
+              ? Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 16),
+                      decoration: const BoxDecoration(
+                        color: LAColors.buttonPrimary,
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(16),
+                          topLeft: Radius.circular(16),
+                        ),
+                      ),
+                      child: const Text(
+                        'Ver mais detalhes',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                child: const Text(
-                  'Ver mais detalhes',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
+                )
+              : Container(),
         ],
       ),
     );
