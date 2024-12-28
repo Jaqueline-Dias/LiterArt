@@ -9,10 +9,14 @@ class LATexts {
   static const String appName = "LiterArt";
   static const String lAContinue = "Continuar";
 
+  // -- App Bar
+  static const String about = 'Sobre o LiterArt';
+
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = 'Erro ao carregar pontos';
+  static const String onBoardingTitle1 = 'Erro ao carregar';
   static const String onBoardingTitle2 = 'Sem dados de pontos';
-  static const String onBoardingTitle3 = "Entrega na sua porta";
+  static const String onBoardingTitle3 = 'Nenhuma doação ativa encontrada.';
+  static const String onBoardingTitle4 = 'Páginas lidas:';
 
   static const String onBoardingSubTitle1 =
       "Bem-vindo a um mundo de escolhas ilimitadas - O produto perfeito espera por você!";
@@ -65,8 +69,31 @@ class LATexts {
       "Bem-vindo ao seu destino definitivo de compras: Sua conta foi criada, aproveite a alegria de fazer compras online sem interrupções!";
 
   // -- Home
-  static const String homeAppbarTitle = "Bom dia para compras";
   static const String homeAppbarSubTitle = "Taimoor Sikander";
+  static const String homeAppbarTitle = "Bom dia para compras";
+
+  // -- About
+  static const String fraseAbout =
+      'A leitura abre a mente, impulsiona sonhos e alimenta a alma.';
+  static const String authorFraseAbout = 'Érico Teixeira';
+  static const String aboutLiterArt =
+      'O LiterArt é um aplicativo desenvolvido pelos acadêmicos Vinicius Faber Zamarchi e Jaqueline Gabrie Dias, sendo utilizado como produto do Trabalho de Conclusão de Curso (TCC) dos acadêmicos. Este aplicativo consiste em uma aplicação voltada para doação de livros físicos, solicitação de doação de livros e avaliação de obras literárias. Através do aplicativo, é possível criar um anúncio de doação, inserindo uma descrição do livro e fotos que comprovem seu estado atual. É possível criar uma postagem de solicitação, onde o usuário insira informações sobre o livro que deseja receber e descreva seu pedido. Também é possível entrar em contato com o usuário responsável pela publicação de doação ou solicitação para sanar dúvidas ou combinar as formas de entrega e coleta do item por meio de um chat. Além disso, a aplicação conta com a área de avaliação literária, onde o usuário insere informações sobre uma determinada obra, descreve sua opinião e indica uma nota que varia em uma escala de um a cinco.';
+
+  // -- Assessments
+  static const String evaluationsHistoryAppbar = 'Suas avaliações';
+  static const String evaluationsHistoryTitle1 =
+      'Vamos avaliar uma obra literária?';
+  static const String evaluationsHistoryTitle2 = 'Últimas avaliações';
+
+  // -- Donations
+  static const String donationsHistoryAppbar = 'Suas doações';
+  static const String donationsHistoryTitle1 = 'Vamos fazer mais uma doação?';
+  static const String donationsHistoryTitle2 = 'Livros disponíveis para doação';
+
+  // -- Profile
+  static const String profileContributions = 'Contribuições';
+  static const String profileContributionsTitle1 = 'Livros doados';
+  static const String profileContributionsTitle2 = 'Obras avaliadas';
 
   // -- Achievement
   static const String currentAchievement = 'Seu título atual';

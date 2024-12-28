@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/theme/app_liter_art_theme.dart';
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
+import 'package:app_liter_art/src/core/utils/constants/constants.dart';
 import 'package:app_liter_art/src/model/models.dart';
 import 'package:app_liter_art/src/modules/widgets/list_tile_drawer.dart';
 import 'package:app_liter_art/src/modules/liter_art_service/assessments/assessment_page.dart';
@@ -59,7 +60,7 @@ class WidgetModalOptionsBook extends StatelessWidget {
                           const Divider(),
                           ListTileDrawer(
                             size: const EdgeInsets.only(bottom: 8),
-                            image: 'assets/images/heart-hand.svg',
+                            image: LAImages.iconDonation,
                             title: 'Quero doar este livro físico',
                             onTap: () {
                               Navigator.of(context).pop(); // Fecha o modal
@@ -93,7 +94,7 @@ class WidgetModalOptionsBook extends StatelessWidget {
                           ),
                           ListTileDrawer(
                             size: const EdgeInsets.only(bottom: 8),
-                            image: 'assets/images/star-01.svg',
+                            image: LAImages.iconAssessment,
                             title: 'Quero avaliar esta obra literária',
                             onTap: () {
                               Navigator.of(context).pop(); // Fecha o modal
