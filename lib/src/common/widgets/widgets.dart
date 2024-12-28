@@ -4,3 +4,6 @@ export 'widget_container_gamification.dart';
 export 'widget_column_gamification.dart';
 export 'widget_row_gamification.dart';
 export 'widget_icon_button_app_bar.dart';
+export 'widget_page_indicator.dart';
+export 'widget_container_help.dart';
+export 'widgets_column_image_text.dart';
