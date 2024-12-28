@@ -13,7 +13,7 @@ class LATextTheme {
     headlineSmall: const TextStyle().copyWith(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: LAColors.dark),
     titleLarge: const TextStyle().copyWith(
-        fontSize: 16.0, fontWeight: FontWeight.w600, color: LAColors.dark),
+        fontSize: 16.0, fontWeight: FontWeight.w600, color: LAColors.primary),
     titleMedium: const TextStyle().copyWith(
         fontSize: 16.0, fontWeight: FontWeight.w500, color: LAColors.dark),
     titleSmall: const TextStyle().copyWith(

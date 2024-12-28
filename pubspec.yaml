@@ -76,8 +76,7 @@ flutter:
     - assets/images/logo/
     - assets/images/splashs/
     - assets/images/gamification/
-    - assets/images/icons/delete.svg
-    - assets/images/icons/status.svg
+    - assets/images/icons/
     - assets/book-search.json
     - assets/icon-home.json
     

@@ -4,7 +4,7 @@
 
 class LAImages {
   // -- App Logos
-  static const String darkAppLogo = "assets/images/logo/logo.png";
+  static const String darkAppLogo = 'assets/images/logo/logo.png';
   static const String lightAppLogo =
       "assets/logos/t-store-splash-logo-white.png";
 
@@ -13,11 +13,13 @@ class LAImages {
   static const String facebook = "assets/logos/facebook-icon.png";
 
   // -- Category Icons
-  static const String sportIcon =
-      "assets/icons/categories/icons8-bowling-64.png";
+  static const String iconDonation = 'assets/images/icons/heart-hand.svg';
+  static const String iconAssessment = 'assets/images/icons/star-01.svg';
 
   // -- Brand Icons
-  static const String nikeLogo = "assets/icons/brands/nike.png";
+  static const String donationIcon = 'assets/images/icons/donation_profile.svg';
+  static const String assessmentIcon =
+      'assets/images/icons/book_assessments.svg';
 
   // -- Animations
   static const String productsIllustration =

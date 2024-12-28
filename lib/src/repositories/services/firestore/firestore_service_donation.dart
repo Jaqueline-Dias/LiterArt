@@ -17,6 +17,7 @@ class FirestoreServiceDonation {
     String? conservation,
     List<dynamic>? photos,
     String? address,
+    bool? status,
   }) async {
     final donation = ModelDonation(
       // donationUid: donations.doc().id,
@@ -32,6 +33,7 @@ class FirestoreServiceDonation {
       conservation: conservation ?? 'Usado',
       photos: photos ?? [],
       address: address,
+      status: status = false,
     );
 
     await donations.add(donation.toMap());
