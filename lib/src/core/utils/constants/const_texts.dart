@@ -11,6 +11,7 @@ class LATexts {
 
   // -- App Bar
   static const String about = 'Sobre o LiterArt';
+  static const String help = 'Ajuda';
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = 'Erro ao carregar';
@@ -71,6 +72,63 @@ class LATexts {
   // -- Home
   static const String homeAppbarSubTitle = "Taimoor Sikander";
   static const String homeAppbarTitle = "Bom dia para compras";
+
+  // -- Help
+  static const String helpTitle1 = 'Como realizar uma doação?';
+  static const String helpSubTitle1 =
+      'Não sabe como publicar a doação de um determinado livro físico? Clique aqui para entender melhor como realizar.';
+  static const String helpTitle2 = 'Como pedir a doação de um livro?';
+  static const String helpSubTitle2 =
+      'Você está com dúvidas em como pedir a doação de um determinado livro? Clique aqui para entender melhor como fazer.';
+  static const String helpTitle3 = 'Como avaliar uma obra literária?';
+  static const String helpSubTitle3 =
+      'Não sabe como fazer e publicar uma avaliação de obra literária? Clique aqui para saber o melhor como realizar.';
+  static const String helpTitle4 = 'Como acompanhar as conquistas?';
+  static const String helpSubTitle4 =
+      'Não sabe como visualizar e acompanhar suas conquistas de leitor? Clique aqui para entender melhor como estar acompanhando.';
+  static const String helpTitle5 = 'Precisa de mais ajuda?';
+  static const String helpSubTitle5 =
+      'Entre em contato com os desenvolvedores: Jaque (jaqueline.ifpr.palmas@gmail.com)\nVinicius (viniciuszamarchi@gmail.com)';
+
+  static const String helpTitleIndicator1 = 'Clique no botão “+”';
+  static const String helSubTitleDonation1 =
+      'Acompanhe esse passo a passo para doar um livro físico no aplicativo. Primeiramente na página inicial clique no botão “+” para ser encaminhado para a página de buscas.';
+
+  static const String helpTitleIndicator2 = 'Busque ou cadastre um livro';
+
+  static const String helpSubTitleDonation2 =
+      'Na página de buscas você poderá utilizar a barra de pesquisa e buscar por um livro ou então cadastre um livro do zero clicando no botão “Novo”.  Independente se você escolheu um livro na busca e clicou no botão “+” ou vai cadastrar um do zero, quando o modal aparecer selecione a opção “Quero doar este livro físico”.';
+
+  static const String helpTitleDonation3 = 'Insira informações sobre a doação';
+  static const String helpSubTitleDonation3 =
+      'Estamos na última etapa, agora só falta adicionarmos algumas informações e publicar a doação. Preencha todos os campos obrigatórios, não esqueça de adicionar algumas fotos deste livro. Se você achar necessário adicione um endereço para entrega da doação, mas isso é opcional. Clique no botão “Publicar doação” e prontinho, sua doação foi realizada!!!';
+
+  static const String helpSubTitleAssessment1 =
+      'Acompanhe esse passo a passo para avaliar uma obra literária no aplicativo. Primeiramente na página inicial clique no botão “+” para ser encaminhado para a página de buscas.';
+  static const String helpSubTitleAssessment2 =
+      'Na página de buscas você poderá utilizar a barra de pesquisa e buscar por um livro ou então cadastre um livro do zero clicando no botão “Novo”.  Independente se você escolheu um livro na busca e clicou no botão “+” ou vai cadastrar um do zero, quando o modal aparecer selecione a opção “Quero avaliar esta obra literária”.';
+  static const String helpTitleAssessment3 =
+      'Insira informações sobre a avaliação';
+  static const String helpSubTitleAssessment3 =
+      'Estamos na última etapa, agora só falta adicionarmos algumas informações e publicar a avaliação. Preencha todos os campos obrigatórios, lembre-se de deixar sua opinião e atribuir uma nota que represente sua satisfação ou insatisfação com a obra. Após isso, clique no botão “Publicar avaliação” e prontinho, sua avaliação foi realizada!!!';
+
+  static const String helpTitleRequest3 = 'Insira informações sobre o pedido';
+  static const String helpSubTitleRequest1 =
+      'Acompanhe esse passo a passo para pedir a doação de um livro no aplicativo. Primeiramente na página inicial clique no botão “+” para ser encaminhado para a página de buscas.';
+  static const String helpSubTitleRequest2 =
+      'Na página de buscas você poderá utilizar a barra de pesquisa e buscar por um livro ou então cadastre um livro do zero clicando no botão “Novo”.  Independente se você escolheu um livro na busca e clicou no botão “+” ou vai cadastrar um do zero, quando o modal aparecer selecione a opção “Quero pedir a doação deste livro”.';
+  static const String helpSubTitleRequest3 =
+      'Estamos na última etapa, agora só falta adicionarmos algumas informações e publicar o pedido. Preencha todos os campos obrigatórios e descreva seu pedido, explique a importância de receber essa doação. Após isso, clique no botão “Publicar solicitação” e prontinho, seu pedido foi realizado!!!';
+
+  static const String helpTitleAchievements1 = 'Acessar o menu lateral';
+  static const String helpSubTitleAchievements1 =
+      'Para acompanhar suas conquistas no aplicativo você precisa na página inicial abrir o menu lateral clicando no ícone na parte superior da tela com três barrinhas, ou arrastando para o lado direito.';
+  static const String helpTitleAchievements2 = 'Conquistas';
+  static const String helpSubTitleAchievements2 =
+      'Clique na aba  “Minhas conquistas” ou clique na sua foto e navegue para a página de perfil e clique na aba “Todos os títulos”. Você tem duas possibilidades de acessar a página de conquistas e visualizar seu progresso.';
+  static const String helpTitleAchievements3 = 'Vamos lá?';
+  static const String helpSubTitleAchievements3 =
+      'Contribua com nosso aplicativo... Deixe o dia mais feliz de uma pessoa ao realizar uma doação ou econtre o lugar certo para pedir aquele livro que tanto sonha em ler. Além de tudo isso, acumule pontos de leitor e conquiste medalhas e títulos.';
 
   // -- About
   static const String fraseAbout =
