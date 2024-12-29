@@ -77,6 +77,7 @@ flutter:
     - assets/images/splashs/
     - assets/images/gamification/
     - assets/images/icons/
+    - assets/images/illustrations/
     - assets/book-search.json
     - assets/icon-home.json
     

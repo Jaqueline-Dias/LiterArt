@@ -151,7 +151,7 @@ class _MyDrawerState extends State<MyDrawer> {
                         );
                       },
                       title: 'Minhas conquistas',
-                      image: 'assets/images/award-03.svg',
+                      image: LAImages.iconAchievement,
                     ),
 
                     const Divider(
@@ -175,7 +175,7 @@ class _MyDrawerState extends State<MyDrawer> {
                         Navigator.of(context).pushNamed('/help');
                       },
                       title: 'Ajuda',
-                      image: 'assets/images/help-octagon.svg',
+                      image: LAImages.iconHelp,
                     ),
                     ListTileDrawer(
                       size: const EdgeInsets.only(

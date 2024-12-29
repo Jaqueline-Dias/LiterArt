@@ -8,13 +8,32 @@ class LAImages {
   static const String lightAppLogo =
       "assets/logos/t-store-splash-logo-white.png";
 
-  // -- Social Logos
-  static const String google = "assets/logos/google-icon.png";
-  static const String facebook = "assets/logos/facebook-icon.png";
+  // -- Illustrations
+  static const String illustration1 =
+      'assets/images/illustrations/shopping-online-gifting-01.svg';
+  static const String illustration2 =
+      'assets/images/illustrations/interface-interface-testing-01-9.svg';
+  static const String illustration3 =
+      'assets/images/illustrations/design-illustrator-drawing-with-ipad-01-7.svg';
+  static const String illustration4 =
+      'assets/images/illustrations/leave-a-review.svg';
+  static const String illustration5 =
+      'assets/images/illustrations/users-people-trophy-awards-01-4.svg';
+  static const String illustration6 =
+      'assets/images/illustrations/product-bring-solutions-to-problems-01-2.svg';
+  static const String illustration7 =
+      'assets/images/illustrations/marketing-filling-survey.svg';
+  static const String illustration8 =
+      'assets/images/illustrations/social-media-share-01-5.svg';
+  static const String illustration9 =
+      'assets/images/illustrations/work-about-us-about-our-team-01-6.svg';
 
   // -- Category Icons
   static const String iconDonation = 'assets/images/icons/heart-hand.svg';
   static const String iconAssessment = 'assets/images/icons/star-01.svg';
+  static const String iconRequest = 'assets/images/icons/bookmark-add.svg';
+  static const String iconAchievement = 'assets/images/icons/award-03.svg';
+  static const String iconHelp = 'assets/images/icons/help-octagon.svg';
 
   // -- Brand Icons
   static const String donationIcon = 'assets/images/icons/donation_profile.svg';
