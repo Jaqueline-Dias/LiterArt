@@ -1,5 +1,6 @@
 import 'package:app_liter_art/src/core/utils/constants/const_colors.dart';
 import 'package:app_liter_art/src/modules/home/home_view_model.dart';
+import 'package:app_liter_art/src/modules/missions/missions_page.dart';
 import 'package:app_liter_art/src/modules/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,7 +28,12 @@ class _HomePageState extends State<HomePage> {
         leading: IconButton(
           icon: SvgPicture.asset('assets/images/trophy-02.svg'),
           onPressed: () {
-            // Ação do botão
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MissionsPage(),
+              ),
+            );
           },
         ),
       ),

@@ -9,9 +9,17 @@ class LATexts {
   static const String appName = "LiterArt";
   static const String lAContinue = "Continuar";
 
+  static const String donations = 'doações';
+  static const String requests = 'solicitações';
+  static const String assessments = 'avaliações';
+
   // -- App Bar
   static const String about = 'Sobre o LiterArt';
   static const String help = 'Ajuda';
+  static const String missions = 'Missões de leitor';
+
+  // -- Text buttons
+  static const String missionsButton = 'Aquirir mais pontos';
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = 'Erro ao carregar';
@@ -72,6 +80,25 @@ class LATexts {
   // -- Home
   static const String homeAppbarSubTitle = "Taimoor Sikander";
   static const String homeAppbarTitle = "Bom dia para compras";
+
+  // -- Missions
+  static const String missionsSubTitle1 = 'Você já fez';
+  static const String missionsSubTitle2 = 'Doe 3 livros físicos';
+  static const String missionsSubTitle3 = 'Solicite 5 doações';
+  static const String missionsSubTitle4 = 'Avalie 4 obras literárias';
+  static const String missionsSubTitle5 = 'Doe 6 livros físicos';
+  static const String missionsSubTitle6 = 'Solicite 10 doações';
+  static const String missionsSubTitle7 = 'Avalie 8 obras literárias';
+  static const String pointsMissions = '+10';
+  static const String titleModalMissions = 'Pontos de leitor';
+  static const String subTitleModalMissions =
+      'Você pode ganhar pontos de leitor ao fazer doações, solicitações e avaliações. Acumule pontos para conquistar títulos.';
+  static const String subTitleModal1 = 'Doar um livro';
+  static const String subTitleModal2 = 'Solicitar um livro';
+  static const String subTitleModal3 = 'Avaliar uma obra';
+  static const String subSubTitleModal1 = '= 30';
+  static const String subSubTitleModal2 = '= 10';
+  static const String subSubTitleModal3 = '= 20';
 
   // -- Help
   static const String helpTitle1 = 'Como realizar uma doação?';

@@ -7,3 +7,6 @@ export 'widget_icon_button_app_bar.dart';
 export 'widget_page_indicator.dart';
 export 'widget_container_help.dart';
 export 'widgets_column_image_text.dart';
+export 'widget_divider.dart';
+export 'widget_container_missions.dart';
+export 'widget_row_missions.dart';
