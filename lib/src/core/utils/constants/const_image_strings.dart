@@ -28,6 +28,23 @@ class LAImages {
   static const String illustration9 =
       'assets/images/illustrations/work-about-us-about-our-team-01-6.svg';
 
+  static const String illustrationSelfHelp =
+      'assets/images/illustrations/self-help-category.jpg';
+  static const String illustrationAdventure =
+      'assets/images/illustrations/adventure-category.jpg';
+  static const String illustrationEducation =
+      'assets/images/illustrations/education-category.jpg';
+  static const String illustrationFantasy =
+      'assets/images/illustrations/fantasy-category.jpg';
+  static const String illustrationFiction =
+      'assets/images/illustrations/fiction-category.jpg';
+  static const String illustrationRomance =
+      'assets/images/illustrations/romance-category.jpg';
+  static const String illustrationHorror =
+      'assets/images/illustrations/horror-category.jpg';
+  static const String illustrationThriller =
+      'assets/images/illustrations/thriller-category.jpg';
+
   // -- Category Icons
   static const String iconDonation = 'assets/images/icons/heart-hand.svg';
   static const String iconAssessment = 'assets/images/icons/star-01.svg';

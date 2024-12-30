@@ -8,22 +8,34 @@ class LATexts {
   static const String submit = "Enviar";
   static const String appName = "LiterArt";
   static const String lAContinue = "Continuar";
+  static const String pag = 'Pág.';
+  static const String details = 'Ver mais detalhes';
 
   static const String donations = 'doações';
   static const String requests = 'solicitações';
   static const String assessments = 'avaliações';
+  static const String selfHelp = 'Autoajuda';
+  static const String adventure = 'Aventura';
+  static const String education = 'Educação';
+  static const String fantasy = 'Fantasia';
+  static const String fiction = 'Ficção';
+  static const String thriller = 'Suspense';
+  static const String romance = 'Romance';
+  static const String horror = 'Terror';
+  static const String others = 'Outros';
 
   // -- App Bar
   static const String about = 'Sobre o LiterArt';
   static const String help = 'Ajuda';
   static const String missions = 'Missões de leitor';
+  static const String categories = 'Categorias de doações';
 
   // -- Text buttons
   static const String missionsButton = 'Aquirir mais pontos';
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = 'Erro ao carregar';
-  static const String onBoardingTitle2 = 'Sem dados de pontos';
+  static const String onBoardingTitle2 = 'Sem dados';
   static const String onBoardingTitle3 = 'Nenhuma doação ativa encontrada.';
   static const String onBoardingTitle4 = 'Páginas lidas:';
 
@@ -54,6 +66,7 @@ class LATexts {
   static const String verificationCode = "Código de Verificação";
   static const String resendEmail = "Reenviar E-Mail";
   static const String resendEmailIn = "Reenviar email em";
+  static const String seeAll = 'Ver tudo';
 
   // -- Authentication Headings
   static const String loginTitle = "Bem-vindo de volta,";
@@ -99,6 +112,17 @@ class LATexts {
   static const String subSubTitleModal1 = '= 30';
   static const String subSubTitleModal2 = '= 10';
   static const String subSubTitleModal3 = '= 20';
+
+  // -- Categories
+  static const String titleAdventure = 'Aventura';
+  static const String titleSelfHelp = 'Auto ajuda';
+  static const String titleEducation = 'Educação';
+  static const String titleFantasy = 'Fantasia';
+  static const String titleFiction = 'Ficção';
+  static const String titleThriller = 'Suspense';
+  static const String titleRomance = 'Romance';
+  static const String titleHorror = 'Terror';
+  static const String titleOtherCategories = 'Outras categorias';
 
   // -- Help
   static const String helpTitle1 = 'Como realizar uma doação?';

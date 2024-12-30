@@ -1,3 +1,9 @@
+import 'package:app_liter_art/src/common/widgets/widgets.dart';
+import 'package:app_liter_art/src/core/utils/constants/constants.dart';
+import 'package:app_liter_art/src/modules/categories/fantasy_category/fantasy_category_page.dart';
+import 'package:app_liter_art/src/modules/categories/fiction_category/fiction_category_page.dart';
+import 'package:app_liter_art/src/modules/categories/horror_category/horror_category_page.dart';
+import 'package:app_liter_art/src/modules/categories/romance_category/romance_category_page.dart';
 import 'package:flutter/material.dart';
 
 class CategoryBooks extends StatefulWidget {
@@ -8,58 +14,64 @@ class CategoryBooks extends StatefulWidget {
 }
 
 class _CategoryBooksState extends State<CategoryBooks> {
-  List<Map<String, String>> categories = [
-    {
-      "image": "assets/images/fantasy_category.jpg",
-      "label": "Fantasia",
-    },
-    {
-      "image": "assets/images/fiction_category.jpg",
-      "label": "Ficção",
-    },
-    {
-      "image": "assets/images/romance_category.jpg",
-      "label": "Romance",
-    },
-    {
-      "image": "assets/images/horror_category.jpg",
-      "label": "Terror",
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: SizedBox(
         height: 105,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: Column(
-                children: [
-                  Container(
-                    height: 75,
-                    width: 75,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage(categories[index]['image']!),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            LACategoryFeed(
+              image: LAImages.illustrationFantasy,
+              title: LATexts.titleFantasy,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FantasyCategoryPage(),
                   ),
-                  const SizedBox(height: 8),
-                  Text(categories[index]['label']!),
-                ],
-              ),
-            );
-          },
+                );
+              },
+            ),
+            LACategoryFeed(
+              image: LAImages.illustrationFiction,
+              title: LATexts.titleFiction,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FictionCategoryPage(),
+                  ),
+                );
+              },
+            ),
+            LACategoryFeed(
+              image: LAImages.illustrationRomance,
+              title: LATexts.titleRomance,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RomanceCategoryPage(),
+                  ),
+                );
+              },
+            ),
+            LACategoryFeed(
+              image: LAImages.illustrationHorror,
+              title: LATexts.titleHorror,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HorrorCategoryPage(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
