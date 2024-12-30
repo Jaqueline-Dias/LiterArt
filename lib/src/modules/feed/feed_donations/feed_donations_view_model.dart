@@ -14,6 +14,13 @@ class FeedDonationsViewModel {
   final Signal<bool> isLoading = signal(true);
   final Signal<String?> errorMessage = signal(null);
 
+  int getDonationCountByCategory(String category) {
+    return donations.value
+        .where((donation) =>
+            (donation['post'] as ModelDonation).category == category)
+        .length;
+  }
+
   FeedDonationsViewModel() {
     fetchDonationsWithUserDetails();
   }
