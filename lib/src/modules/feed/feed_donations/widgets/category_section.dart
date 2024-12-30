@@ -1,3 +1,4 @@
+import 'package:app_liter_art/src/modules/categories/categories_page.dart';
 import 'package:app_liter_art/src/modules/widgets/text_title.dart';
 import 'package:flutter/material.dart';
 
@@ -17,15 +18,25 @@ class _CategorySectionState extends State<CategorySection> {
       child: SizedBox(
         width: sizeOf.width,
         height: sizeOf.height * 0.05,
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextTitle(
+            const TextTitle(
               title: 'Explorar categorias',
             ),
-            TextTitle(
-              title: 'Ver tudo',
-              color: false,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CategoriesPage(),
+                  ),
+                );
+              },
+              child: const TextTitle(
+                title: 'Ver tudo',
+                color: false,
+              ),
             ),
           ],
         ),
